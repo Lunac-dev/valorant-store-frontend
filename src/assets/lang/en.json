@@ -1,0 +1,14 @@
+{
+    "2fa" : "Support for two-factor authentication is temporarily suspended.",
+    "share" : "We'll never share your password and username with anyone else.",
+    "helloeveryone" : "I will try to explain about this site. I created this site because I was tired of launching 'Valorant' and checking the store every single time. You can check the daily offers and the night market from your smartphone, PC, etc.",
+    "title2" : "Is there a chance that my account will be stolen?",
+    "title2-text" : "Making important changes to your Riot Games account, such as changing your password, requires a two-step verification process using email. Basically, RiotGames will send you a one-time password via email. Therefore, no one can steal your account, even if you share your password. However, you can still log in and play on your account. I do not have the benefit of fraud on this site and login information will not be stored or shared in any way in accordance with the Privacy Policy.",
+    "title3" : "ToS & Privacy Policy",
+    "title4" : "Contact",
+    "agree" : "I agree to the User Agreement and agree to use this site at my own risk.",
+    "nolink" : "You are not linked.",
+    "unlinkwarning": "Once this operation is performed, it will be completely deleted from the database. Please note that it cannot be undone.",
+    "linkwarning": "Be careful, the Riot account name does not belong to your Riot ID! That means it's not the name under which you've always played VALORANT!",
+    "logout-complete": "Logout complete! See you soon!"
+}
