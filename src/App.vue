@@ -108,7 +108,7 @@ export default {
       ['mdi-home-circle-outline', 'Home', './', true],
       ['mdi-account-cog-outline', 'Link Manager', './link', true],
       ['mdi-pistol', 'Daily Store', './store', true],
-      ['mdi-account-circle-outline', 'Profile(β)', './profile', true],
+      ['mdi-trophy-variant-outline', 'VCT-Matches', './vct-matches', true],
       ['mdi-information-outline', 'About', './about', true],
     ],
     model: 1,

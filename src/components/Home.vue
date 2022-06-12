@@ -268,10 +268,14 @@ export default {
                 var video = document.createElement("video");
                 video.setAttribute("controls","");
                 video.src=this.videos[key];
+                video.preload = "metadata";
+                video.style.width= "100%";
+                video.autoplay = true;
+                video.loop = true;
 
                 this.$swal({
                 html: video,
-                width: "100%",
+                width: "80%",
                 })
             }
         },
@@ -282,10 +286,13 @@ export default {
                 var video = document.createElement("video");
                 video.setAttribute("controls","");
                 video.src=this.videos2[key];
+                video.preload = "metadata";
+                video.style.width= "100%";
+                video.autoplay = true;
+                video.loop = true;
 
                 this.$swal({
                 html: video,
-                width: "100%",
                 })
             }
         },

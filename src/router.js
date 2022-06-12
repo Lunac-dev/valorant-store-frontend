@@ -6,7 +6,7 @@ import NotFound from './components/NotFound.vue'
 import About from './components/About.vue'
 import Logout from './components/Logout.vue'
 import Getuser from './components/Getuser.vue'
-import Profile from './components/Profile.vue'
+import VCTMatches from './components/Vct-matches.vue'
 import Link from './components/Link.vue'
 
 Vue.use(Router)
@@ -26,9 +26,9 @@ export default new Router({
       component: About
     },
     {
-      path: '/profile',
-      name: 'profile',
-      component: Profile
+      path: '/vct-matches',
+      name: 'vct-matches',
+      component: VCTMatches
     },
     {
       path: '/link',
