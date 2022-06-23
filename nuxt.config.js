@@ -1,8 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  target: "static",
-  //ssr: false,
   loadingIndicator: {
     name: 'circle',
     color: '#fa4454',
@@ -43,7 +41,8 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/pwa'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
