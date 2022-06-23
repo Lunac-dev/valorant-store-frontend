@@ -25,7 +25,7 @@
             contain
           >
             <v-img
-              :src="weapon.imgsrc"
+              src="/vs.png"
               height="250px"
               class="align-end"
               aspect-ratio="1.4"
@@ -61,7 +61,7 @@
             contain
           >
             <v-img
-              :src="weapon.imgsrc"
+              src="/vs.png"
               height="250px"
               class="align-end"
               aspect-ratio="1.4"
