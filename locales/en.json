@@ -1,0 +1,10 @@
+{
+  "not-link": "Account linkage has not been completed. You must link your Riot account from the Link Manager page.",
+  "index-invitebot": "Invite bot",
+  "index-dashboard": "Go Dashboard",
+  "about-subtitle": "We offer you Discord bot, a website that makes your Valorant life convenient.",
+  "about-discordbot": "Get Daily Stores, Missions, and Wallets on Discord! No setup required. Just invite bots and run the command.",
+  "about-mission": "Daily and weekly missions can be viewed on the web.",
+  "link-warning": "Be careful, the Riot account name does not belong to your Riot ID! That means it's not the name under which you've always played VALORANT!",
+  "link-warning2": "Once this operation is performed, it will be completely deleted from the database. Please note that it cannot be undone."
+}
