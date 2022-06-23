@@ -1,8 +1,8 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  //target: "static",
-  ssr: false,
+  target: "static",
+  //ssr: false,
   loadingIndicator: {
     name: 'circle',
     color: '#fa4454',
