@@ -16,6 +16,7 @@
           </h1>
           <v-alert
             type="warning"
+            outlined
           >
             {{ $t('link-warning') }}
           </v-alert>
@@ -72,6 +73,7 @@
           </h1>
           <v-alert
             type="warning"
+            outlined
           >
             {{ $t('link-warning2') }}
           </v-alert>
@@ -118,6 +120,12 @@ export default {
       riotuserpassword: null,
       riotregion: null,
       required: value => !!value || 'Please be sure to fill out the form or select.'
+    }
+  },
+
+  head () {
+    return {
+      title: 'Link Manager'
     }
   },
 

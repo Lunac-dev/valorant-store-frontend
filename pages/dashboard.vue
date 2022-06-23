@@ -104,9 +104,15 @@
           elevation="2"
           class="pa-5"
           width="100vh"
+          height="100%"
         >
           <v-row>
             <h1>Weekly Missions</h1>
+            <v-col cols="12" v-if="weeklymissions[0] == undefined">
+              <h3>
+                There doesn't seem to be anything here.
+              </h3>
+            </v-col>
             <v-col v-for="mission in weeklymissions" v-bind:key="mission.title" cols="12">
               <v-card
                 class="mx-auto"

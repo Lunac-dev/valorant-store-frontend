@@ -51,7 +51,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
     '@nuxtjs/i18n',
-    'vue-sweetalert2/nuxt'
+    'vue-sweetalert2/nuxt',
+    '@nuxtjs/sentry'
   ],
 
   i18n: {

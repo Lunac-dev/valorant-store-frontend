@@ -7,6 +7,30 @@
     >
       <v-app-bar-nav-icon @click="drawer=!drawer" />
       <v-spacer />
+      <v-menu offset-y rounded="Removed" transition="slide-y-transition">
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            color="error"
+            class="mr-10"
+            outlined
+            large
+            v-bind="attrs"
+            v-on="on"
+          >
+            Language
+          </v-btn>
+        </template>
+        <v-list
+          nav
+        >
+          <v-list-item v-if="$i18n.locale !== 'en'" :to="switchLocalePath('en')">
+            <v-list-item-title>English</v-list-item-title>
+          </v-list-item>
+          <v-list-item v-if="$i18n.locale !== 'ja'" :to="switchLocalePath('ja')">
+            <v-list-item-title>日本語</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
       <v-btn
         v-if="!$auth.loggedIn"
         color="error"
@@ -15,14 +39,6 @@
       >
         Login
       </v-btn>
-      <!-- <v-avatar
-        v-else
-      >
-        <img
-          :src="avatar"
-          alt="Discord Avatar"
-        >
-      </v-avatar> -->
       <v-menu offset-y v-else rounded="Removed" transition="slide-y-transition">
         <template v-slot:activator="{ on, attrs }">
           <v-avatar
@@ -116,7 +132,8 @@
       absolute
       inset
     >
-      <span class="grey--text text-center">&copy; {{ new Date().getFullYear() }} - valorantstore.net is not endorsed by Riot Games in any way. Riot Games, Valorant, and all associated properties are trademarks or registered trademarks of Riot Games, Inc. This is made by a player, for players.</span>
+      <span class="grey--text" style="font-size: 1vh">&copy; {{ new Date().getFullYear() }} - valorantstore.net is not endorsed by Riot Games in any way. Riot Games, Valorant, and all associated properties are trademarks or registered trademarks of Riot Games, Inc. This is made by a player, for players.<br>
+        Thanks to Valorant-API for the images and videos of the weapons.</span>
     </v-footer>
   </v-app>
 </template>
@@ -129,7 +146,7 @@ export default {
       drawer: null,
       generalitems: [
         ['mdi-home-outline', 'Home', 'index', true],
-        ['mdi-trophy-variant-outline', 'VCT-Matches', 'vct-matches', true],
+        // ['mdi-trophy-variant-outline', 'VCT-Matches', 'vct-matches', true],
         ['mdi-information-outline', 'About', 'about', true]
       ],
       loginonlyitems: [

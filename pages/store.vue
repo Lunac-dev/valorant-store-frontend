@@ -115,6 +115,12 @@ export default {
     }
   },
 
+  head () {
+    return {
+      title: 'Daily Store'
+    }
+  },
+
   mounted () {
     this.loadStores()
     this.getShareLink()

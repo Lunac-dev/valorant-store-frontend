@@ -65,6 +65,24 @@
         </v-card>
       </div>
     </div>
+    <div class="pt-10">
+      <div class="v-responsive d-flex align-center mx-auto justify-center" style="height: 100%; max-width: 100vh; width: 100%;">
+        <v-card
+          elevation="2"
+          class="pa-5 text-center"
+          width="100vh"
+        >
+          <h1>Contact Us</h1>
+          <iframe
+            src="https://discord.com/widget?id=781946764168658984&theme=dark"
+            width="350"
+            height="300"
+            allowtransparency="true"
+            frameborder="0"
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" />
+        </v-card>
+      </div>
+    </div>
   </v-container>
 </template>
 
