@@ -7,8 +7,7 @@
 <br/>
 
 ## About
-This is the [ValorantStore.net](https://valorantstore.net/) front end. Anyone can see the code. And the front end is hosted by netlify.
-<img src="https://i.imgur.com/Kv8SMsc.png" height="200">
+This is the [ValorantStore.net](https://valorantstore.net/) front end. Anyone can see the code.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6e10ec19-dc0a-445e-ad34-dd274d6e2b97/deploy-status)](https://app.netlify.com/sites/valorant-store/deploys)
 
