@@ -103,9 +103,6 @@ export default {
       logout: '/',
       callback: '/login',
       home: '/'
-    },
-    auth: {
-      cookie: false
     }
   },
 
