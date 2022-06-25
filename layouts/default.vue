@@ -79,7 +79,7 @@
         <div>
           <v-list-item>
             <v-list-item-title class="text-center">
-              <img alt="VS Logo" src="/vs.png" height="50">
+              <img alt="VS Logo" src="/images/vs.png" height="50">
             </v-list-item-title>
           </v-list-item>
         </div>
@@ -132,8 +132,7 @@
       absolute
       inset
     >
-      <span class="grey--text" style="font-size: 1vh">&copy; {{ new Date().getFullYear() }} - valorantstore.net is not endorsed by Riot Games in any way. Riot Games, Valorant, and all associated properties are trademarks or registered trademarks of Riot Games, Inc. This is made by a player, for players.<br>
-        Thanks to Valorant-API for the images and videos of the weapons.</span>
+      <span class="grey--text" style="font-size: 1vh">&copy; {{ new Date().getFullYear() }} - valorantstore.net is not endorsed by Riot Games in any way. Riot Games, Valorant, and all associated properties are trademarks or registered trademarks of Riot Games, Inc. This is made by a player, for players.</span>
     </v-footer>
   </v-app>
 </template>
