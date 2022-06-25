@@ -103,6 +103,9 @@ export default {
       logout: '/',
       callback: '/login',
       home: '/'
+    },
+    auth: {
+      localStorage: false
     }
   },
 
