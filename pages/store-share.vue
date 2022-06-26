@@ -19,13 +19,13 @@
           @click="viewvideo(weapon.videosrc)"
         >
           <v-img
-            :src="weapon.tierimgsrc"
+            :src="/images/ + weapon.tierid + '.png'"
             height="250px"
             aspect-ratio="1.4"
             contain
           >
             <v-img
-              src="/vs.png"
+              :src="weapon.imgsrc"
               height="250px"
               class="align-end"
               aspect-ratio="1.4"
@@ -55,13 +55,13 @@
           @click="viewvideo(weapon.videosrc)"
         >
           <v-img
-            :src="weapon.tierimgsrc"
+            :src="/images/ + weapon.tierid + '.png'"
             height="250px"
             aspect-ratio="1.4"
             contain
           >
             <v-img
-              src="/vs.png"
+              :src="weapon.imgsrc"
               height="250px"
               class="align-end"
               aspect-ratio="1.4"
@@ -134,7 +134,7 @@ export default {
           continue
         }
         this.storeoffers.push(
-          { vp: stores[k].vp, name: stores[k].name, imgsrc: stores[k].imgsrc, videosrc: stores[k].videosrc, tierimgsrc: stores[k].tierimgsrc }
+          { vp: stores[k].vp, name: stores[k].name, imgsrc: stores[k].imgsrc, videosrc: stores[k].videosrc, tierid: stores[k].tierid }
         )
       }
       if ('BonusStore' in stores) {
@@ -143,24 +143,9 @@ export default {
             continue
           }
           this.bonusoffers.push(
-            { vp: stores.BonusStore[k].vp, vpold: stores.BonusStore[k].vpold, name: stores.BonusStore[k].name, imgsrc: stores.BonusStore[k].imgsrc, videosrc: stores.BonusStore[k].videosrc, tierimgsrc: stores[k].tierimgsrc }
+            { vp: stores.BonusStore[k].vp, vpold: stores.BonusStore[k].vpold, name: stores.BonusStore[k].name, imgsrc: stores.BonusStore[k].imgsrc, videosrc: stores.BonusStore[k].videosrc, tierid: stores[k].tierid }
           )
         }
-        this.intervalId = setInterval(function () {
-          this.offerleft2 = this.offerleft2 - 1
-          this.offerleft = this.getLeftTime(this.offerleft2)
-          this.bundleleft2 = this.bundleleft2 - 1
-          this.bundleleft = this.getLeftTime(this.bundleleft2)
-          this.bonusleft2 = this.bonusleft2 - 1
-          this.bonusleft = this.getLeftTime(this.bonusleft2)
-        }.bind(this), 1000)
-      } else {
-        this.intervalId = setInterval(function () {
-          this.offerleft2 = this.offerleft2 - 1
-          this.offerleft = this.getLeftTime(this.offerleft2)
-          this.bundleleft2 = this.bundleleft2 - 1
-          this.bundleleft = this.getLeftTime(this.bundleleft2)
-        }.bind(this), 1000)
       }
     },
 

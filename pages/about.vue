@@ -78,15 +78,42 @@
           class="pa-5 text-center"
           width="100vh"
         >
-          <h1>Contact Us</h1>
-          <iframe
-            src="https://discord.com/widget?id=781946764168658984&theme=dark"
-            width="350"
-            height="300"
-            allowtransparency="true"
-            frameborder="0"
-            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-          />
+          <v-row align-content="center">
+            <v-col align="center">
+              <h1>Contact Us</h1>
+              <iframe
+                src="https://discord.com/widget?id=781946764168658984&theme=dark"
+                width="350"
+                height="300"
+                allowtransparency="true"
+                frameborder="0"
+                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+              />
+            </v-col>
+            <v-col align="center">
+              <h1>Safe?</h1>
+              <p class="text--secondary">
+                {{ $t('about-safe') }}
+              </p>
+              <v-btn
+                elevation="2"
+                block
+                color="info"
+                href="https://github.com/Lunac-dev/valorant-store-frontend"
+              >
+                valorant-store-frontend
+              </v-btn>
+              <v-btn
+                class="mt-5"
+                elevation="2"
+                block
+                color="info"
+                href="https://github.com/Lunac-dev/valorant-store-backend"
+              >
+                valorant-store-backend
+              </v-btn>
+            </v-col>
+          </v-row>
         </v-card>
       </div>
     </div>

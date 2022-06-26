@@ -43,7 +43,7 @@ export default {
 .mtop {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("/images/background.png");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("/images/background.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
