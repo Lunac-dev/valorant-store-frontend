@@ -274,7 +274,6 @@ export default {
 }
 </script>
 <style scoped lang="css">
-@import url('https://fonts.cdnfonts.com/css/valorant');
 .valofont {
   color: #ff4655;
   font-family: 'VALORANT', sans-serif;

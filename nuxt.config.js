@@ -21,7 +21,12 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/images/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/images/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.cdnfonts.com/css/valorant',
+      }
     ]
   },
 
@@ -42,8 +47,13 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@aceforth/nuxt-optimized-images',
   ],
+
+  optimizedImages: {
+    optimizeImages: true
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -88,6 +98,13 @@ export default {
           success: colors.green.accent3
         }
       }
+    }
+  },
+
+  pwa: {
+    icon: {
+      source: '/static/images/vs.png',
+      fileName: 'vs.png'
     }
   },
 

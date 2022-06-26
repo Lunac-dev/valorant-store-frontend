@@ -40,11 +40,10 @@ export default {
 </script>
 
 <style scoped lang="css">
-@import url('https://fonts.cdnfonts.com/css/valorant');
 .mtop {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("/images/background.gif");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("/images/background.png");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;

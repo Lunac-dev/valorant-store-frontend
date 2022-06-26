@@ -17,7 +17,10 @@
         >
           <v-row align-content="center">
             <v-col align="center">
-              <img src="/images/vsbot.png" style="border-radius: 10%">
+              <picture>
+                <source srcSet="/images/vsbot.png?webp" type="image/webp">
+                <img src="/images/vsbot.png" style="border-radius: 10%">
+              </picture>
             </v-col>
             <v-col align="center">
               <h1>Discord Bot</h1>
@@ -59,7 +62,10 @@
               </v-btn>
             </v-col>
             <v-col align="center">
-              <img src="/images/mission.png" style="border-radius: 10%">
+              <picture>
+                <source srcSet="/images/mission.png?webp" type="image/webp">
+                <img src="/images/mission.png" style="border-radius: 10%">
+              </picture>
             </v-col>
           </v-row>
         </v-card>
@@ -79,7 +85,8 @@
             height="300"
             allowtransparency="true"
             frameborder="0"
-            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" />
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+          />
         </v-card>
       </div>
     </div>
@@ -99,7 +106,6 @@ export default {
 </script>
 
 <style scoped lang="css">
-@import url('https://fonts.cdnfonts.com/css/valorant');
 .valofont {
   color: #ff4655;
   font-family: 'VALORANT', sans-serif;
