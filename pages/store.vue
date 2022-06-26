@@ -128,7 +128,7 @@ export default {
 
   methods: {
     async loadStores () {
-      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/getStore`, { headers: { discordid: this.$auth.user.id } })
+      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/getStore`, { headers: { discordid: this.$store.state.auth.user.id } })
       if (response.data.Status !== undefined) {
         if (response.data.Status === 'EMPTY') {
           this.$swal({
@@ -150,14 +150,14 @@ export default {
     },
 
     async getShareLink () {
-      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/getStoreShareLink`, { headers: { discordid: this.$auth.user.id } })
+      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/getStoreShareLink`, { headers: { discordid: this.$store.state.auth.user.id } })
       if (response.data.Status !== 'FAILED') {
         this.sharelink = '/store-share?id=' + response.data.Status
       }
     },
 
     async reauth () {
-      const reauth = await this.$axios.get(`${this.$config.API_BASE}/valorant/reauth`, { headers: { discordid: this.$auth.user.id } })
+      const reauth = await this.$axios.get(`${this.$config.API_BASE}/valorant/reauth`, { headers: { discordid: this.$store.state.auth.user.id } })
       return reauth.data.Status
     },
 
@@ -237,7 +237,7 @@ export default {
         showConfirmButton: false
       })
       this.$swal.showLoading()
-      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/updateStore`, { headers: { discordid: this.$auth.user.id } })
+      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/updateStore`, { headers: { discordid: this.$store.state.auth.user.id } })
       if (response.data.Status.includes('Bad Request')) {
         this.$swal({
           title: 'Re-auth is in progress...',
@@ -248,7 +248,7 @@ export default {
         })
         this.$swal.showLoading()
         if (await this.reauth() === 'OK') {
-          const stores = await this.$axios.get(`${this.$config.API_BASE}/valorant/updateStore`, { headers: { discordid: this.$auth.user.id } })
+          const stores = await this.$axios.get(`${this.$config.API_BASE}/valorant/updateStore`, { headers: { discordid: this.$store.state.auth.user.id } })
           this.$swal.hideLoading()
           if (stores.data.Status === 'OK') {
             this.$swal({

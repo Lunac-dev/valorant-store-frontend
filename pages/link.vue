@@ -151,7 +151,7 @@ export default {
           return
         }
         // Success
-        const register = await this.$axios.get(`${this.$config.API_BASE}/register/` + this.$auth.user.id + '/' + this.riotusername + '/' + this.riotregion, { headers: { password: this.riotuserpassword } })
+        const register = await this.$axios.get(`${this.$config.API_BASE}/register/` + this.$store.state.auth.user.id + '/' + this.riotusername + '/' + this.riotregion, { headers: { password: this.riotuserpassword } })
         if (register.data.Status === 'OK') {
           // Success
           this.$swal({
@@ -195,7 +195,7 @@ export default {
 
     async unlink () {
       this.$swal.showLoading()
-      const unlink = await this.$axios.get(`${this.$config.API_BASE}/unlink`, { headers: { discordid: this.$auth.user.id } })
+      const unlink = await this.$axios.get(`${this.$config.API_BASE}/unlink`, { headers: { discordid: this.$store.state.auth.user.id } })
       if (unlink.data.Status === 'OK') {
         // Success
         this.$swal({

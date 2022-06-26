@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 class="vtitle">
-      Hello, {{ $auth.user.username }}
+      Hello, {{ $store.state.auth.user.username }}
     </h1>
     <v-btn
       color="error"
@@ -158,7 +158,7 @@ export default {
 
   methods: {
     async loadDashboard () {
-      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/getDashboard`, { headers: { discordid: this.$auth.user.id } })
+      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/getDashboard`, { headers: { discordid: this.$store.state.auth.user.id } })
       if (response.data.Status !== undefined) {
         if (response.data.Status === 'EMPTY') {
           this.$swal({
@@ -181,7 +181,7 @@ export default {
     },
 
     async reauth () {
-      const reauth = await this.$axios.get(`${this.$config.API_BASE}/valorant/reauth`, { headers: { discordid: this.$auth.user.id } })
+      const reauth = await this.$axios.get(`${this.$config.API_BASE}/valorant/reauth`, { headers: { discordid: this.$store.state.auth.user.id } })
       return reauth.data.Status
     },
 
@@ -213,7 +213,7 @@ export default {
         showConfirmButton: false
       })
       this.$swal.showLoading()
-      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/updateDashboard`, { headers: { discordid: this.$auth.user.id } })
+      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/updateDashboard`, { headers: { discordid: this.$store.state.auth.user.id } })
       if (response.data.Status.includes('Bad Request')) {
         this.$swal({
           title: 'Re-auth is in progress...',
@@ -224,7 +224,7 @@ export default {
         })
         this.$swal.showLoading()
         if (await this.reauth() === 'OK') {
-          const missions = await this.$axios.get(`${this.$config.API_BASE}/valorant/updateDashboard`, { headers: { discordid: this.$auth.user.id } })
+          const missions = await this.$axios.get(`${this.$config.API_BASE}/valorant/updateDashboard`, { headers: { discordid: this.$store.state.auth.user.id } })
           this.$swal.hideLoading()
           if (missions.data.Status === 'OK') {
             this.$swal({

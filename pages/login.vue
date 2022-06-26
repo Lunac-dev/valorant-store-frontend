@@ -6,7 +6,7 @@
 export default {
   name: 'LoginPage',
   mounted () {
-    if (!this.$auth.loggedIn && !this.$route.query.code) {
+    if (!this.$store.state.auth.loggedIn && !this.$route.query.code) {
       this.$auth.loginWith('discord')
     } else {
       this.$auth.redirect('/')

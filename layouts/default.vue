@@ -32,7 +32,7 @@
         </v-list>
       </v-menu>
       <v-btn
-        v-if="!$auth.loggedIn"
+        v-if="!$store.state.auth.loggedIn"
         color="error"
         large
         @click="loginpage"
@@ -59,7 +59,7 @@
             <v-list-item-icon>
               <v-icon>mdi-account-check-outline</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>{{ $auth.user.username }} #{{ $auth.user.discriminator }}</v-list-item-title>
+            <v-list-item-title>{{ $store.state.auth.user.username }} #{{ $store.state.auth.user.discriminator }}</v-list-item-title>
           </v-list-item>
           <v-list-item @click="$auth.logout()">
             <v-list-item-icon>
