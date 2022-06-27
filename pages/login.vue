@@ -8,8 +8,8 @@ export default {
   mounted () {
     if (!this.$store.state.auth.loggedIn && !this.$route.query.code) {
       this.$auth.loginWith('discord')
-    } else {
-      this.$auth.redirect('/')
+    } else if (this.$store.state.auth.loggedIn) {
+      this.$router.push('/')
     }
   }
 }

@@ -43,13 +43,16 @@
         <template v-slot:activator="{ on, attrs }">
           <v-avatar
             v-bind="attrs"
-            class="pr-3"
             v-on="on"
           >
             <img
+              v-if="avatar !== null"
               :src="avatar"
               alt="Discord Avatar"
             >
+            <v-icon v-else>
+              mdi-account-circle
+            </v-icon>
           </v-avatar>
         </template>
         <v-list
@@ -158,8 +161,8 @@ export default {
   },
 
   mounted () {
-    if (this.$auth.loggedIn) {
-      this.avatar = 'https://cdn.discordapp.com/avatars/' + this.$auth.user.id + '/' + this.$auth.user.avatar + '.png'
+    if (this.$store.state.auth.loggedIn && this.$store.state.auth.user.avatar !== null) {
+      this.avatar = 'https://cdn.discordapp.com/avatars/' + this.$store.state.auth.user.id + '/' + this.$store.state.auth.user.avatar + '.png'
     }
   },
 
