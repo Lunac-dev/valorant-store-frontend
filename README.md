@@ -7,9 +7,7 @@
 <br/>
 
 ## About
-This is the [ValorantStore.net](https://valorantstore.net/) front end. Anyone can see the code.
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/6e10ec19-dc0a-445e-ad34-dd274d6e2b97/deploy-status)](https://app.netlify.com/sites/valorant-store/deploys)
+This is the [ValorantStore.net](https://valorantstore.net/) front end. Anyone can see the code. This project is hosted at Vercel.com
 
 ## Support
 If you need help, join us on Discord.
