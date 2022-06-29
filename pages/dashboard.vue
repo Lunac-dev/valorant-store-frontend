@@ -238,7 +238,7 @@ export default {
           } else {
             this.$swal({
               icon: 'error',
-              title: 'Oops...',
+              title: 'Error [E3]',
               text: missions.data.Status
             })
             this.update = false
@@ -246,7 +246,7 @@ export default {
         } else {
           this.$swal({
             icon: 'error',
-            title: 'Oops...',
+            title: 'Error [E2]',
             text: this.reauth()
           })
           this.update = false
@@ -264,7 +264,7 @@ export default {
       } else {
         this.$swal({
           icon: 'error',
-          title: 'Oops...',
+          title: 'Error [E1]',
           text: response.data.Status
         })
         this.update = false

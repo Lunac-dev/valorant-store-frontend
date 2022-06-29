@@ -3,6 +3,7 @@
     <h1 class="vtitle">
       Daily Store / <span v-text="offerleft" />
     </h1>
+    <p>{{ $t('store-update') }}</p>
     <v-btn
       color="error"
       large
@@ -263,7 +264,7 @@ export default {
           } else {
             this.$swal({
               icon: 'error',
-              title: 'Oops...',
+              title: 'Error [E3]',
               text: stores.data.Status
             })
             this.update = false
@@ -271,7 +272,7 @@ export default {
         } else {
           this.$swal({
             icon: 'error',
-            title: 'Oops...',
+            title: 'Error [E2]',
             text: this.reauth()
           })
           this.update = false
@@ -290,7 +291,7 @@ export default {
       } else {
         this.$swal({
           icon: 'error',
-          title: 'Oops...',
+          title: 'Error [E1]',
           text: response.data.Status
         })
         this.update = false
