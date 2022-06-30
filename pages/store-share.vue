@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 class="vtitle">
-      {{ this.$route.query.id }}'s Daily Store
+      Look at my store!
     </h1>
     <v-alert
       v-if="status !== undefined"

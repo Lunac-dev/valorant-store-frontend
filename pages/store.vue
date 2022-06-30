@@ -13,11 +13,10 @@
       Update Stores
     </v-btn>
     <v-btn
-      v-if="sharelink !== undefined"
       color="error"
       large
       outlined
-      :to="sharelink"
+      :to="'store-share?id=' + $store.state.auth.user.id"
       target="_blank"
     >
       Share this Store
@@ -111,8 +110,7 @@ export default {
       offerleft2: 0,
       bonusleft2: 0,
       intervalId: undefined,
-      update: false,
-      sharelink: undefined
+      update: false
     }
   },
 
@@ -124,7 +122,6 @@ export default {
 
   mounted () {
     this.loadStores()
-    this.getShareLink()
   },
 
   methods: {
@@ -147,13 +144,6 @@ export default {
         }
       } else {
         this.setStores(response.data)
-      }
-    },
-
-    async getShareLink () {
-      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/getStoreShareLink`, { headers: { discordid: this.$store.state.auth.user.id } })
-      if (response.data.Status !== 'FAILED') {
-        this.sharelink = '/store-share?id=' + response.data.Status
       }
     },
 
