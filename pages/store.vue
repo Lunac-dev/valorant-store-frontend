@@ -238,7 +238,8 @@ export default {
           showConfirmButton: false
         })
         this.$swal.showLoading()
-        if (await this.reauth() === 'OK') {
+        const reauth = await this.reauth()
+        if (reauth === 'OK') {
           const stores = await this.$axios.get(`${this.$config.API_BASE}/valorant/updateStore`, { headers: { discordid: this.$store.state.auth.user.id } })
           this.$swal.hideLoading()
           if (stores.data.Status === 'OK') {
@@ -263,7 +264,7 @@ export default {
           this.$swal({
             icon: 'error',
             title: 'Error [E2]',
-            text: this.reauth()
+            text: reauth
           })
           this.update = false
         }
