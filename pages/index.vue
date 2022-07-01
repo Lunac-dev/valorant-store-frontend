@@ -6,6 +6,7 @@
           <span class="mtop-h1">VSC</span>
           <h1>Making <span class="valofont">Valorant</span> Life More Comfortable</h1>
           <v-btn
+            href="https://discord.com/api/oauth2/authorize?client_id=962376379658297375&permissions=83968&scope=bot%20applications.commands"
             color="error"
             outlined
             x-large

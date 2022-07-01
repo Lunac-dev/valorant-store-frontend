@@ -28,6 +28,7 @@
                 {{ $t('about-discordbot') }}
               </p>
               <v-btn
+                href="https://discord.com/api/oauth2/authorize?client_id=962376379658297375&permissions=83968&scope=bot%20applications.commands"
                 elevation="2"
                 block
                 color="error"
