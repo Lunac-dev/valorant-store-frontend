@@ -165,11 +165,10 @@ export default {
     },
 
     getDateFrom (date) {
-      const datetime = date
-      const from = new Date(datetime)
-
-      const diff = new Date().getTime() - from.getTime()
+      const diff = new Date().getTime() - date
       const elapsed = new Date(diff)
+
+      console.log(elapsed.getTime())
 
       if (date === undefined) {
         return 'Unknown'
