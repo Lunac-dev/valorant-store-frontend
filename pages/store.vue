@@ -21,6 +21,17 @@
     >
       Share this Store
     </v-btn>
+    <v-btn
+      color="error"
+      large
+      text
+      @click="viewdate()"
+    >
+      <v-icon left>
+        mdi-clock-check-outline
+      </v-icon>
+      <h3 v-text="date" />
+    </v-btn>
     <v-row class="pt-5">
       <v-col v-for="weapon in storeoffers" v-bind:key="weapon.name" cols="12" sm="3">
         <v-card
@@ -110,7 +121,8 @@ export default {
       offerleft2: 0,
       bonusleft2: 0,
       intervalId: undefined,
-      update: false
+      update: false,
+      date: undefined
     }
   },
 
@@ -152,11 +164,40 @@ export default {
       return reauth.data.Status
     },
 
+    getDateFrom (date) {
+      const datetime = date
+      const from = new Date(datetime)
+
+      const diff = new Date().getTime() - from.getTime()
+      const elapsed = new Date(diff)
+
+      if (date === undefined) {
+        return 'Unknown'
+      }
+
+      if (elapsed.getUTCFullYear() - 1970) {
+        return elapsed.getUTCFullYear() - 1970 + ' years ago'
+      } else if (elapsed.getUTCMonth()) {
+        return elapsed.getUTCMonth() + ' months ago'
+      } else if (elapsed.getUTCDate() - 1) {
+        return elapsed.getUTCDate() - 1 + ' days ago'
+      } else if (elapsed.getUTCHours()) {
+        return elapsed.getUTCHours() + ' hours ago'
+      } else if (elapsed.getUTCMinutes()) {
+        return elapsed.getUTCMinutes() + ' minutes ago'
+      } else if (elapsed.getUTCSeconds()) {
+        return elapsed.getUTCSeconds() + ' seconds ago'
+      } else {
+        return 'just now'
+      }
+    },
+
     setStores (stores) {
       for (const k in stores) {
         if ('offerleft' in stores[k]) {
           this.offerleft = this.getLeftTime(stores[k].offerleft)
           this.offerleft2 = stores[k].offerleft
+          this.date = this.getDateFrom(stores[k].date)
           continue
         }
         this.storeoffers.push(
@@ -206,6 +247,14 @@ export default {
           width: '80%'
         })
       }
+    },
+
+    viewdate () {
+      this.$swal({
+        icon: 'info',
+        title: 'Last updated time',
+        text: this.date
+      })
     },
 
     getLeftTime (time) {
