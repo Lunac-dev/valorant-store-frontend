@@ -68,7 +68,8 @@ export default {
   i18n: {
     locales: [
       { code: 'ja', name: 'Japanese', iso: 'ja_JP', file: 'ja.json' },
-      { code: 'en', name: 'English', iso: 'en-US', file: 'en.json' }
+      { code: 'en', name: 'English', iso: 'en-US', file: 'en.json' },
+      { code: 'de', name: 'German', iso: 'de-DE', file: 'de.json' }
     ],
     defaultLocale: 'en',
     langDir: 'locales/',

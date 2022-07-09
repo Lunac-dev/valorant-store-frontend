@@ -29,6 +29,9 @@
           <v-list-item v-if="$i18n.locale !== 'ja'" :to="switchLocalePath('ja')">
             <v-list-item-title>日本語</v-list-item-title>
           </v-list-item>
+          <v-list-item v-if="$i18n.locale !== 'de'" :to="switchLocalePath('de')">
+            <v-list-item-title>Deutsch (Sprache)</v-list-item-title>
+          </v-list-item>
         </v-list>
       </v-menu>
       <v-btn
