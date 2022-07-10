@@ -30,7 +30,7 @@
             <v-list-item-title>日本語</v-list-item-title>
           </v-list-item>
           <v-list-item v-if="$i18n.locale !== 'de'" :to="switchLocalePath('de')">
-            <v-list-item-title>Deutsch (Sprache)</v-list-item-title>
+            <v-list-item-title>Deutsch</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -157,7 +157,8 @@ export default {
       loginonlyitems: [
         ['mdi-view-dashboard', 'Dashboard', 'dashboard', true],
         ['mdi-cart', 'Daily Store', 'store', true],
-        ['mdi-account-cog-outline', 'Link Manager', 'link', true]
+        ['mdi-account-cog-outline', 'Link Manager', 'link', true],
+        ['mdi-playlist-check', 'Wish List', 'wish', true]
       ],
       avatar: null
     }
