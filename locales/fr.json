@@ -1,0 +1,12 @@
+{
+  "not-link": "L'association de votre compte n'est pas terminée. Vous devez lier votre compte Riot à partir de Gestionnaire de compte.",
+  "index-invitebot": "Inviter le bot.",
+  "index-dashboard": "Dashboard",
+  "about-subtitle": "Nous vous proposons Bot Discord, et un site qui facilite votre utilisation de Valorant",
+  "about-discordbot": "Obtenez vos magasins quotidiens, vos missions et votre portefeuille sur Discord ! Aucune configuration requise. Invitez simplement le bot et exécutez la commande.",
+  "about-mission": "Les missions quotidiennes et hebdomadaires peuvent être consultées sur le Web.",
+  "about-safe": "Tout le code source est disponible sur Github.",
+  "link-warning": "Attention, le nom du compte Riot n'est pas votre Riot ID ! Cela signifie que ce n'est pas le nom sous lequel vous jouez toujours à VALORANT !",
+  "link-warning2": "Une fois cette opération effectuée, elle sera complètement supprimée de la base de données. Veuillez noter qu'elle ne peut pas être annulée.",
+  "store-update": "Vous pouvez consulter votre magasin quotidien ici. Si vous ne voyez rien, cliquez sur le bouton Mettre à jour."
+}
