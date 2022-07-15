@@ -73,7 +73,7 @@ export default {
     ],
     defaultLocale: 'en',
     langDir: 'locales/',
-    strategy: 'prefix_and_default',
+    strategy: 'no_prefix',
     lazy: true
   },
 
