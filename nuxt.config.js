@@ -103,10 +103,17 @@ export default {
   },
 
   pwa: {
-    icon: {
-      source: '/static/images/vs.png',
-      fileName: 'vs.png'
+    manifest: {
+      lang: 'en'
     }
+  },
+
+  manifest: {
+    name: 'Valorant Store Checker',
+    short_name: 'VSC',
+    description: 'Check your daily store without launching Valorant! Quick, easy, and simple!',
+    theme_color: '#FFFFFF',
+    background_color: '#FFFFFF'
   },
 
   auth: {
