@@ -17,10 +17,7 @@
         >
           <v-row align-content="center">
             <v-col align="center">
-              <picture>
-                <source srcSet="/images/vsbot.png?webp" type="image/webp">
-                <img src="/images/vsbot.png" style="border-radius: 10%">
-              </picture>
+              <img src="/images/vsbot.png" style="border-radius: 10%">
             </v-col>
             <v-col align="center">
               <h1>Discord Bot</h1>
@@ -63,10 +60,7 @@
               </v-btn>
             </v-col>
             <v-col align="center">
-              <picture>
-                <source srcSet="/images/mission.png?webp" type="image/webp">
-                <img src="/images/mission.png" style="border-radius: 10%">
-              </picture>
+              <img src="/images/mission.png" style="border-radius: 10%">
             </v-col>
           </v-row>
         </v-card>
