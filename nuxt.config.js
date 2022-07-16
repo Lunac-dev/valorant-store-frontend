@@ -47,13 +47,8 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-    '@nuxtjs/pwa',
-    '@aceforth/nuxt-optimized-images',
+    '@nuxtjs/pwa'
   ],
-
-  optimizedImages: {
-    optimizeImages: true
-  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -73,7 +68,7 @@ export default {
     ],
     defaultLocale: 'en',
     langDir: 'locales/',
-    strategy: 'prefix_and_default',
+    strategy: 'no_prefix',
     lazy: true
   },
 
@@ -103,10 +98,17 @@ export default {
   },
 
   pwa: {
-    icon: {
-      source: '/static/images/vs.png',
-      fileName: 'vs.png'
+    manifest: {
+      lang: 'en'
     }
+  },
+
+  manifest: {
+    name: 'Valorant Store Checker',
+    short_name: 'VSC',
+    description: 'Check your daily store without launching Valorant! Quick, easy, and simple!',
+    theme_color: '#FFFFFF',
+    background_color: '#FFFFFF'
   },
 
   auth: {
