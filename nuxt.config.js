@@ -24,8 +24,11 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/images/favicon.ico' },
       {
         rel: 'stylesheet',
-        href:
-          'https://fonts.cdnfonts.com/css/valorant',
+        href: 'https://fonts.cdnfonts.com/css/valorant',
+      },
+      {
+        rel: 'stylesheet',
+        href: 'http://fonts.cdnfonts.com/css/league-spartan',
       }
     ]
   },

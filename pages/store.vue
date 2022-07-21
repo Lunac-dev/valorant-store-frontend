@@ -101,7 +101,7 @@
         </v-card>
       </v-col>
     </v-row>
-    <h2 v-else>
+    <h2 v-else style="margin-top: 10px;">
       Night market is not open.
     </h2>
   </v-container>

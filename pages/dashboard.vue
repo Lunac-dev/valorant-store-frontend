@@ -11,7 +11,7 @@
     >
       Update Dashboard
     </v-btn>
-    <v-row>
+    <v-row style="margin-top: 2px;">
       <v-col cols="12" sm="6">
         <v-card
           elevation="2"

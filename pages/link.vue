@@ -107,7 +107,7 @@ export default {
           value: 'eu'
         },
         {
-          label: 'North_America / Latin_America / Brazil',
+          label: 'North America / Latin America / Brazil',
           value: 'na'
         },
         {
