@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 class="vtitle">
-      Hello, {{ $store.state.auth.user.username }}
+      {{ $t('dashboard-title')}}, {{ $store.state.auth.user.username }}
     </h1>
     <v-btn
       color="error"
@@ -9,7 +9,7 @@
       :loading="update"
       @click="updateDashboard()"
     >
-      Update Dashboard
+      {{ $t('store-update-store') }}
     </v-btn>
     <v-row style="margin-top: 2px;">
       <v-col cols="12" sm="6">
@@ -19,7 +19,7 @@
           width="100vh"
           height="100%"
         >
-          <h1>Wallet</h1>
+          <h1>{{ $t('dashboard-wallet')}}</h1>
           <v-row>
             <v-col cols="12" sm="6">
               <h3>Valorant Points</h3>
@@ -78,7 +78,7 @@
           height="100%"
         >
           <v-row>
-            <h1>Daily Missions</h1>
+            <h1>{{ $t('dashboard-daily') }}</h1>
             <v-col v-for="mission in dailymissions" v-bind:key="mission.title" cols="12">
               <v-card
                 class="mx-auto"
@@ -107,7 +107,7 @@
           height="100%"
         >
           <v-row>
-            <h1>Weekly Missions</h1>
+            <h1>{{ $t('dashboard-weekly') }}</h1>
             <v-col cols="12" v-if="weeklymissions[0] == undefined">
               <h3>
                 There doesn't seem to be anything here.

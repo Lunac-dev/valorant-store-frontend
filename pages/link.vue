@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 class="vtitle">
-      Link Manager
+      {{ $t('navbar-link-manager') }}
     </h1>
     <v-row>
       <v-col cols="12" sm="6">
@@ -12,7 +12,7 @@
           height="100%"
         >
           <h1>
-            Link your riot account
+            {{ $t('link-link-account') }}
           </h1>
           <v-alert
             type="warning"
@@ -69,7 +69,7 @@
           height="100%"
         >
           <h1>
-            Unlink your riot account
+            {{ $t('link-unlink-account') }}
           </h1>
           <v-alert
             type="warning"
@@ -107,7 +107,7 @@ export default {
           value: 'eu'
         },
         {
-          label: 'North America / Latin America / Brazil',
+          label: 'North_America / Latin_America / Brazil',
           value: 'na'
         },
         {
