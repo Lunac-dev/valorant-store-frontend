@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 class="vtitle">
-      Daily Store / <span v-text="offerleft" />
+     {{ $t('navbar-daily-store') }} / <span v-text="offerleft" />
     </h1>
     <p>{{ $t('store-update') }}</p>
     <v-btn
@@ -10,7 +10,7 @@
       :loading="update"
       @click="updateStore()"
     >
-      Update Stores
+      {{ $t('store-update-store') }}
     </v-btn>
     <v-btn
       color="error"
@@ -18,8 +18,9 @@
       outlined
       :to="'store-share?id=' + $store.state.auth.user.id"
       target="_blank"
+      style="margin-left: 7 px;"
     >
-      Share this Store
+    {{ $t('store-share') }}
     </v-btn>
     <v-btn
       color="error"
@@ -66,7 +67,7 @@
       </v-col>
     </v-row>
     <h1 v-if="bonusoffers[0] !== undefined" class="vtitle">
-      Night Marcket / <span v-text="bonusleft" />
+      {{ $t('store-night-market') }} / <span v-text="bonusleft" />
     </h1>
     <v-row v-if="bonusoffers[0] !== undefined">
       <v-col v-for="weapon in bonusoffers" v-bind:key="weapon.name" cols="6">
@@ -101,8 +102,8 @@
         </v-card>
       </v-col>
     </v-row>
-    <h2 v-else>
-      Night market is not open.
+    <h2 v-else style="margin-top: 10px;">
+      {{ $t('store-night-market') }}
     </h2>
   </v-container>
 </template>

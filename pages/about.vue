@@ -60,7 +60,7 @@
               </v-btn>
             </v-col>
             <v-col align="center">
-              <img src="/images/mission.png" style="border-radius: 10%">
+              <img src="/images/mission.png">
             </v-col>
           </v-row>
         </v-card>
