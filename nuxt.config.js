@@ -24,8 +24,11 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/images/favicon.ico' },
       {
         rel: 'stylesheet',
-        href:
-          'https://fonts.cdnfonts.com/css/valorant',
+        href: 'https://fonts.cdnfonts.com/css/valorant',
+      },
+      {
+        rel: 'stylesheet',
+        href: 'http://fonts.cdnfonts.com/css/league-spartan',
       }
     ]
   },
@@ -64,7 +67,8 @@ export default {
     locales: [
       { code: 'ja', name: 'Japanese', iso: 'ja_JP', file: 'ja.json' },
       { code: 'en', name: 'English', iso: 'en-US', file: 'en.json' },
-      { code: 'de', name: 'German', iso: 'de-DE', file: 'de.json' }
+      { code: 'de', name: 'German', iso: 'de-DE', file: 'de.json' },
+      { code: 'fr', name: 'French', iso: 'fr-FR', file: 'fr.json' },
     ],
     defaultLocale: 'en',
     langDir: 'locales/',

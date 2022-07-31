@@ -17,7 +17,7 @@
             v-bind="attrs"
             v-on="on"
           >
-            Language
+            {{ $t('top-navbar-lang') }}
           </v-btn>
         </template>
         <v-list
@@ -32,6 +32,9 @@
           <v-list-item v-if="$i18n.locale !== 'de'" @click="() => changeLocale('de')">
             <v-list-item-title>Deutsch</v-list-item-title>
           </v-list-item>
+          <v-list-item v-if="$i18n.locale !== 'fr'" @click="() => changeLocale('fr')">
+            <v-list-item-title>French</v-list-item-title>
+          </v-list-item>
         </v-list>
       </v-menu>
       <v-btn
@@ -40,7 +43,7 @@
         large
         @click="loginpage"
       >
-        Login
+        {{ $t('top-navbar-login') }}
       </v-btn>
       <v-menu offset-y v-else rounded="Removed" transition="slide-y-transition">
         <template v-slot:activator="{ on, attrs }">
@@ -150,14 +153,21 @@ export default {
     return {
       drawer: null,
       generalitems: [
-        ['mdi-home-outline', 'Home', 'index', true],
+        ['mdi-home-outline', `${this.$t('navbar-home')}`, 'index', true],
         // ['mdi-trophy-variant-outline', 'VCT-Matches', 'vct-matches', true],
-        ['mdi-information-outline', 'About', 'about', true]
+        ['mdi-information-outline', `${this.$t('navbar-about')}`, 'about', true]
       ],
       loginonlyitems: [
+<<<<<<< HEAD
         ['mdi-view-dashboard', 'Dashboard', 'dashboard', true],
         ['mdi-cart', 'Daily Store', 'store', true],
         ['mdi-account-cog-outline', 'Link Manager', 'link', true]
+=======
+        ['mdi-view-dashboard', `${this.$t('navbar-dashboard')}`, 'dashboard', true],
+        ['mdi-cart', `${this.$t('navbar-daily-store')}`, 'store', true],
+        ['mdi-account-cog-outline', `${this.$t('navbar-link-manager')}`, 'link', true],
+        ['mdi-playlist-check', `${this.$t('navbar-wish-list')}`, 'wish', true]
+>>>>>>> 358d372dadc3f6e37ab089358249f3237086cc9e
       ],
       avatar: null
     }
