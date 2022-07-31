@@ -158,16 +158,9 @@ export default {
         ['mdi-information-outline', `${this.$t('navbar-about')}`, 'about', true]
       ],
       loginonlyitems: [
-<<<<<<< HEAD
         ['mdi-view-dashboard', 'Dashboard', 'dashboard', true],
         ['mdi-cart', 'Daily Store', 'store', true],
         ['mdi-account-cog-outline', 'Link Manager', 'link', true]
-=======
-        ['mdi-view-dashboard', `${this.$t('navbar-dashboard')}`, 'dashboard', true],
-        ['mdi-cart', `${this.$t('navbar-daily-store')}`, 'store', true],
-        ['mdi-account-cog-outline', `${this.$t('navbar-link-manager')}`, 'link', true],
-        ['mdi-playlist-check', `${this.$t('navbar-wish-list')}`, 'wish', true]
->>>>>>> 358d372dadc3f6e37ab089358249f3237086cc9e
       ],
       avatar: null
     }
