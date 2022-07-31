@@ -157,8 +157,7 @@ export default {
       loginonlyitems: [
         ['mdi-view-dashboard', 'Dashboard', 'dashboard', true],
         ['mdi-cart', 'Daily Store', 'store', true],
-        ['mdi-account-cog-outline', 'Link Manager', 'link', true],
-        ['mdi-playlist-check', 'Wish List', 'wish', true]
+        ['mdi-account-cog-outline', 'Link Manager', 'link', true]
       ],
       avatar: null
     }

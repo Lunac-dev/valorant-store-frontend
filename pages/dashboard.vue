@@ -223,7 +223,8 @@ export default {
           showConfirmButton: false
         })
         this.$swal.showLoading()
-        if (await this.reauth() === 'OK') {
+        const reauth = await this.reauth()
+        if (reauth === 'OK') {
           const missions = await this.$axios.get(`${this.$config.API_BASE}/valorant/updateDashboard`, { headers: { discordid: this.$store.state.auth.user.id } })
           this.$swal.hideLoading()
           if (missions.data.Status === 'OK') {
