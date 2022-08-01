@@ -25,7 +25,8 @@
   "dashboard-weekly": "Missions hebdomadaires",
   "store-update-store": "Mettre à jour la boutique",
   "store-share": "Partager la boutique",
-  "store-night-market": "Le marché nocturne n'est pas ouvert.",
+  "store-night-market": "Night Market",
+  "store-night-market-close": "Night market is not open.",
   "link-link-account": "Lier votre compte Riot",
   "link-unlink-account": "Délier votre compte Riot"
 }

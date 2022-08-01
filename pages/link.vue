@@ -50,6 +50,11 @@
               :rules="[required]"
               color="error"
             />
+            <v-checkbox
+              v-model="relogin"
+              label="Enable or disable auto-login"
+              color="error"
+            ></v-checkbox>
             <v-btn
               elevation="2"
               color="error"
@@ -119,6 +124,7 @@ export default {
       riotusername: null,
       riotuserpassword: null,
       riotregion: null,
+      relogin: false,
       required: value => !!value || 'Please be sure to fill out the form or select.'
     }
   },
@@ -151,37 +157,37 @@ export default {
           return
         }
         // Success
-        const register = await this.$axios.get(`${this.$config.API_BASE}/register/` + this.$store.state.auth.user.id + '/' + this.riotusername + '/' + this.riotregion, { headers: { password: this.riotuserpassword } })
-        if (register.data.Status === 'OK') {
+        const register = await this.$axios.get(`${this.$config.API_BASE}/valorant/login`, { headers: { password: this.riotuserpassword, username: this.riotusername, region: this.riotregion, discordid: this.$store.state.auth.user.id, relogin: this.relogin } })
+        if (register.data.status === 'OK') {
           // Success
           this.$swal({
             icon: 'success',
-            title: 'NICE!',
+            title: 'Success!',
             text: 'Link is complete!'
           })
-        } else if (register.data.Status === 'FAILED') {
+        } else if (register.data.status === 'FAILED') {
           this.$swal({
             icon: 'error',
             title: 'Oops...',
             text: 'Already linked.'
           })
-        } else if (register.data.Status === 'auth_failure') {
+        } else if (register.data.status === 'auth_failure') {
           this.$swal({
             icon: 'error',
             title: 'Oops...',
             text: 'Wrong password or username.'
           })
-        } else if (register.data.Status === '2fa') {
+        } else if (register.data.status === '2fa') {
           this.$swal({
             icon: 'error',
             title: 'Oops...',
-            text: 'Two-factor authentication is not supported at this stage. Please disable 2-factor authentication only when linking, and then re-enable it.'
+            text: 'If two-factor authentication is enabled, you will not be able to login via the web; you must login via the Discord bot.'
           })
         } else {
           this.$swal({
             icon: 'error',
-            title: 'Oops...',
-            text: register.data.Status
+            title: 'Unknown Error',
+            text: register.data.status
           })
         }
       } else {
@@ -195,12 +201,12 @@ export default {
 
     async unlink () {
       this.$swal.showLoading()
-      const unlink = await this.$axios.get(`${this.$config.API_BASE}/unlink`, { headers: { discordid: this.$store.state.auth.user.id } })
-      if (unlink.data.Status === 'OK') {
+      const unlink = await this.$axios.get(`${this.$config.API_BASE}/valorant/logout`, { headers: { discordid: this.$store.state.auth.user.id } })
+      if (unlink.data.status === 'OK') {
         // Success
         this.$swal({
           icon: 'success',
-          title: 'Bye!',
+          title: 'See you again!',
           text: 'Unlink is complete!'
         })
       } else {
@@ -208,7 +214,7 @@ export default {
         this.$swal({
           icon: 'error',
           title: 'Oops...',
-          text: unlink.data.Status
+          text: unlink.data.status
         })
       }
     }

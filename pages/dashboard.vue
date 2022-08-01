@@ -6,10 +6,13 @@
     <v-btn
       color="error"
       large
-      :loading="update"
-      @click="updateDashboard()"
+      text
+      @click="viewdate()"
     >
-      {{ $t('store-update-store') }}
+    <v-icon left>
+      mdi-clock-check-outline
+    </v-icon>
+    <h3 v-text="date" />
     </v-btn>
     <v-row style="margin-top: 2px;">
       <v-col cols="12" sm="6">
@@ -146,9 +149,9 @@ export default {
     return {
       dailymissions: [],
       weeklymissions: [],
-      update: false,
       vp: 0,
-      rp: 0
+      rp: 0,
+      date: undefined
     }
   },
 
@@ -158,31 +161,28 @@ export default {
 
   methods: {
     async loadDashboard () {
-      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/getDashboard`, { headers: { discordid: this.$store.state.auth.user.id } })
-      if (response.data.Status !== undefined) {
-        if (response.data.Status === 'EMPTY') {
-          this.$swal({
-            icon: 'info',
-            title: 'Hey!',
-            text: 'Please click the Update button'
-          })
-        } else if (response.data.Status === 'FAILED') {
+      const wallet = await this.$axios.get(`${this.$config.API_BASE}/valorant/getwallet`, { headers: { discordid: this.$store.state.auth.user.id } })
+      if (wallet.data.status !== undefined) {
+        if (wallet.data.status === 'FAILED') {
           this.$swal({
             icon: 'error',
             title: 'Oops...',
             text: this.$t('not-link')
           })
           this.$router.go(-1)
+        } else {
+          this.$swal({
+            icon: 'error',
+            title: 'Oops...',
+            text: wallet.data.status
+          })
         }
       } else {
-        this.setMissions(response.data.missions)
-        this.setWallet(response.data.wallet)
+        this.setWallet(wallet.data)
+        this.date = this.getDateFrom(wallet.data.date * 1000)
+        const mission = await this.$axios.get(`${this.$config.API_BASE}/valorant/getmission`, { headers: { discordid: this.$store.state.auth.user.id } })
+        this.setMissions(mission.data)
       }
-    },
-
-    async reauth () {
-      const reauth = await this.$axios.get(`${this.$config.API_BASE}/valorant/reauth`, { headers: { discordid: this.$store.state.auth.user.id } })
-      return reauth.data.Status
     },
 
     setMissions (missions) {
@@ -199,77 +199,41 @@ export default {
     },
 
     setWallet (wallet) {
-      this.vp = wallet.Balances['85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741']
-      this.rp = wallet.Balances['e59aa87c-4cbf-517a-5983-6e81511be9b7']
+      this.vp = wallet.data.Balances['85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741']
+      this.rp = wallet.data.Balances['e59aa87c-4cbf-517a-5983-6e81511be9b7']
     },
 
-    async updateDashboard () {
-      this.update = true
-      this.$swal({
-        title: 'Updating...',
-        icon: 'info',
-        text: 'Please leave the screen as it is until the end of the process.',
-        allowOutsideClick: false,
-        showConfirmButton: false
-      })
-      this.$swal.showLoading()
-      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/updateDashboard`, { headers: { discordid: this.$store.state.auth.user.id } })
-      if (response.data.Status.includes('Bad Request')) {
-        this.$swal({
-          title: 'Re-auth is in progress...',
-          icon: 'info',
-          text: 'Please leave the screen as it is until the end of the process.',
-          allowOutsideClick: false,
-          showConfirmButton: false
-        })
-        this.$swal.showLoading()
-        const reauth = await this.reauth()
-        if (reauth === 'OK') {
-          const missions = await this.$axios.get(`${this.$config.API_BASE}/valorant/updateDashboard`, { headers: { discordid: this.$store.state.auth.user.id } })
-          this.$swal.hideLoading()
-          if (missions.data.Status === 'OK') {
-            this.$swal({
-              icon: 'success',
-              title: 'Updated!'
-            })
-            this.update = false
-            this.dailymissions.splice(0)
-            this.weeklymissions.splice(0)
-            this.loadDashboard()
-          } else {
-            this.$swal({
-              icon: 'error',
-              title: 'Error [E3]',
-              text: missions.data.Status
-            })
-            this.update = false
-          }
-        } else {
-          this.$swal({
-            icon: 'error',
-            title: 'Error [E2]',
-            text: this.reauth()
-          })
-          this.update = false
-        }
-      } else if (response.data.Status === 'OK') {
-        this.$swal.hideLoading()
-        this.$swal({
-          icon: 'success',
-          title: 'Updated!'
-        })
-        this.update = false
-        this.dailymissions.splice(0)
-        this.weeklymissions.splice(0)
-        this.loadDashboard()
-      } else {
-        this.$swal({
-          icon: 'error',
-          title: 'Error [E1]',
-          text: response.data.Status
-        })
-        this.update = false
+    getDateFrom (date) {
+      const diff = new Date().getTime() - date
+      const elapsed = new Date(diff)
+
+      if (date === undefined) {
+        return 'Unknown'
       }
+
+      if (elapsed.getUTCFullYear() - 1970) {
+        return elapsed.getUTCFullYear() - 1970 + ' years ago'
+      } else if (elapsed.getUTCMonth()) {
+        return elapsed.getUTCMonth() + ' months ago'
+      } else if (elapsed.getUTCDate() - 1) {
+        return elapsed.getUTCDate() - 1 + ' days ago'
+      } else if (elapsed.getUTCHours()) {
+        return elapsed.getUTCHours() + ' hours ago'
+      } else if (elapsed.getUTCMinutes()) {
+        return elapsed.getUTCMinutes() + ' minutes ago'
+      } else if (elapsed.getUTCSeconds()) {
+        return elapsed.getUTCSeconds() + ' seconds ago'
+      } else {
+        return 'just now'
+      }
+    },
+
+    viewdate () {
+      this.$swal({
+        icon: 'info',
+        title: 'Last updated time',
+        text: this.date
+      })
     }
   }
 }

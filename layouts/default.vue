@@ -158,9 +158,9 @@ export default {
         ['mdi-information-outline', `${this.$t('navbar-about')}`, 'about', true]
       ],
       loginonlyitems: [
-        ['mdi-view-dashboard', 'Dashboard', 'dashboard', true],
-        ['mdi-cart', 'Daily Store', 'store', true],
-        ['mdi-account-cog-outline', 'Link Manager', 'link', true]
+        ['mdi-view-dashboard', `${this.$t('navbar-dashboard')}`, 'dashboard', true],
+        ['mdi-cart', `${this.$t('navbar-daily-store')}`, 'store', true],
+        ['mdi-account-cog-outline', `${this.$t('navbar-link-manager')}`, 'link', true]
       ],
       avatar: null
     }

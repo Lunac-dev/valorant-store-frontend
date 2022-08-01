@@ -24,7 +24,8 @@
   "dashboard-weekly": "Weekly Missions",
   "store-update-store": "Update Stores",
   "store-share": "Share this store",
-  "store-night-market": "Night market is not open.",
+  "store-night-market": "Night Market",
+  "store-night-market-close": "Night market is not open.",
   "link-link-account": "Link your riot account",
   "link-unlink-account": "Unlink your riot account"
 }

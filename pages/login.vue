@@ -6,11 +6,11 @@
 export default {
   name: 'LoginPage',
   mounted () {
-    // if (!this.$store.state.auth.loggedIn && !this.$route.query.code) {
-    //   this.$auth.loginWith('discord')
-    // } else if (this.$store.state.auth.loggedIn) {
-    //   this.$router.push('/')
-    // }
+    if (!this.$store.state.auth.loggedIn && !this.$route.query.code) {
+      this.$auth.loginWith('discord')
+    } else if (this.$store.state.auth.loggedIn) {
+      this.$router.push('/')
+    }
   }
 }
 </script>
