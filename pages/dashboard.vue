@@ -68,7 +68,27 @@
           width="100vh"
           height="100%"
         >
-          <h1>Coming Soon...</h1>
+          <h1>Game News</h1>
+          <v-row>
+            <v-col v-for="tmp in news" v-bind:key="tmp.name" cols="12" sm="3">
+              <v-card
+                class="mx-auto"
+                max-width="100%"
+              >
+                <a :href="tmp.url" target="_blank">
+                  <v-img
+                    :src="tmp.banner_url"
+                    aspect-ratio="1.4"
+                    contain
+                  >
+                  </v-img>
+                </a>
+                <v-card-subtitle>
+                  {{ tmp.title }}
+                </v-card-subtitle>
+              </v-card>
+            </v-col>
+          </v-row>
         </v-card>
       </v-col>
     </v-row>
@@ -151,12 +171,15 @@ export default {
       weeklymissions: [],
       vp: 0,
       rp: 0,
-      date: undefined
+      date: undefined,
+      news: []
     }
   },
 
   mounted () {
+    this.$swal.showLoading()
     this.loadDashboard()
+    this.loadNews()
   },
 
   methods: {
@@ -185,6 +208,11 @@ export default {
       }
     },
 
+    async loadNews () {
+      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/news`)
+      this.news = response.data
+    },
+
     setMissions (missions) {
       for (const k in missions.daily) {
         this.dailymissions.push(
@@ -196,6 +224,7 @@ export default {
           { title: missions.weekly[k].title, xpGrant: missions.weekly[k].xpGrant, progress: missions.weekly[k].progress, progressToComplete: missions.weekly[k].progressToComplete }
         )
       }
+      this.$swal.close()
     },
 
     setWallet (wallet) {

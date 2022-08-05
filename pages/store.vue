@@ -31,7 +31,6 @@
         <v-card
           class="mx-auto c1"
           max-width="100%"
-          outlined
           hover
           @click="viewvideo(weapon.videosrc)"
         >
@@ -51,7 +50,7 @@
               <v-card-title class="valofont">
                 {{ weapon.name }}
               </v-card-title>
-              <v-card-subtitle class="text-h6 text-decoration-underline">
+              <v-card-subtitle class="text-h6 text-decoration-underline text-right">
                 {{ weapon.vp }} VP
               </v-card-subtitle>
             </v-img>
@@ -67,7 +66,6 @@
         <v-card
           class="mx-auto c2"
           max-width="100%"
-          outlined
           hover
           @click="viewvideo(weapon.videosrc)"
         >
@@ -87,7 +85,7 @@
               <v-card-title class="valofont">
                 {{ weapon.name }}
               </v-card-title>
-              <v-card-subtitle class="text-h6 text-decoration-underline">
+              <v-card-subtitle class="text-h6 text-decoration-underline text-right">
                 {{ weapon.vpold }} VP -> {{ weapon.vp }} VP
               </v-card-subtitle>
             </v-img>
@@ -121,6 +119,7 @@ export default {
   },
 
   mounted () {
+    this.$swal.showLoading()
     this.loadStores()
   },
 
@@ -184,6 +183,7 @@ export default {
           { vp: stores[k].vp, name: stores[k].name, imgsrc: stores[k].imgsrc, videosrc: stores[k].videosrc, tierid: stores[k].tierid }
         )
       }
+      this.$swal.close()
     },
 
     setNightMarket (stores) {
@@ -209,6 +209,10 @@ export default {
         this.$swal({
           html: video,
           width: '80%'
+        })
+      } else {
+        this.$swal({
+          title: 'No video available.'
         })
       }
     },

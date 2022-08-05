@@ -155,7 +155,8 @@ export default {
       generalitems: [
         ['mdi-home-outline', `${this.$t('navbar-home')}`, 'index', true],
         // ['mdi-trophy-variant-outline', 'VCT-Matches', 'vct-matches', true],
-        ['mdi-information-outline', `${this.$t('navbar-about')}`, 'about', true]
+        ['mdi-information-outline', `${this.$t('navbar-about')}`, 'about', true],
+        ['mdi-archive-outline', `${this.$t('navbar-bundles')}`, 'bundles', true]
       ],
       loginonlyitems: [
         ['mdi-view-dashboard', `${this.$t('navbar-dashboard')}`, 'dashboard', true],
