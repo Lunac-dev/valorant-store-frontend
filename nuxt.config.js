@@ -60,7 +60,9 @@ export default {
     '@nuxtjs/auth-next',
     '@nuxtjs/i18n',
     'vue-sweetalert2/nuxt',
-    '@nuxtjs/sentry'
+    '@nuxtjs/sentry',
+    '@nuxtjs/google-adsense',
+    '@nuxtjs/google-analytics'
   ],
 
   i18n: {
@@ -130,8 +132,22 @@ export default {
     }
   },
 
+  'google-adsense': {
+    id: process.env.GA_ADSENSE_ID,
+    pageLevelAds: true,
+    analyticsUacct: process.env.GA_TRACKING_ID,
+    analyticsDomainName: process.env.DOMAIN
+  },
+
+  googleAnalytics: {
+    id: process.env.GA_TRACKING_ID
+  },
+
   publicRuntimeConfig: {
-    API_BASE: process.env.API_BASE
+    API_BASE: process.env.API_BASE,
+    googleAnalytics: {
+      id: process.env.GA_TRACKING_ID
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
