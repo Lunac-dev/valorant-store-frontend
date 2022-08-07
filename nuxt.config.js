@@ -133,10 +133,9 @@ export default {
   },
 
   'google-adsense': {
-    id: process.env.GA_ADSENSE_ID,
+    onPageLoad: false,
     pageLevelAds: true,
-    analyticsUacct: process.env.GA_TRACKING_ID,
-    analyticsDomainName: process.env.DOMAIN
+    overlayBottom: true
   },
 
   googleAnalytics: {
@@ -147,6 +146,11 @@ export default {
     API_BASE: process.env.API_BASE,
     googleAnalytics: {
       id: process.env.GA_TRACKING_ID
+    },
+    'google-adsense': {
+      id: process.env.GA_ADSENSE_ID,
+      analyticsUacct: process.env.GA_TRACKING_ID,
+      analyticsDomainName: process.env.DOMAIN
     }
   },
 
