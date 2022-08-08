@@ -61,7 +61,8 @@ export default {
     '@nuxtjs/i18n',
     'vue-sweetalert2/nuxt',
     '@nuxtjs/sentry',
-    '@nuxtjs/google-adsense'
+    '@nuxtjs/google-adsense',
+    '@nuxtjs/google-gtag'
   ],
 
   i18n: {
@@ -132,22 +133,19 @@ export default {
   },
 
   'google-adsense': {
-    onPageLoad: false,
+    id: process.env.GA_ADSENSE_ID,
     pageLevelAds: true,
-    overlayBottom: true
+    overlayBottom: true,
+    analyticsUacct: process.env.GA_TRACKING_ID,
+    analyticsDomainName: process.env.DOMAIN
   },
 
-  // 'google-gtag': {
-  //   id: process.env.GA_TRACKING_ID
-  // },
+  'google-gtag': {
+    id: process.env.GA_TRACKING_ID
+  },
 
   publicRuntimeConfig: {
-    API_BASE: process.env.API_BASE,
-    'google-adsense': {
-      id: process.env.GA_ADSENSE_ID,
-      analyticsUacct: process.env.GA_TRACKING_ID,
-      analyticsDomainName: process.env.DOMAIN
-    }
+    API_BASE: process.env.API_BASE
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
