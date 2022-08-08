@@ -61,8 +61,7 @@ export default {
     '@nuxtjs/i18n',
     'vue-sweetalert2/nuxt',
     '@nuxtjs/sentry',
-    '@nuxtjs/google-adsense',
-    '@nuxtjs/google-gtag'
+    '@nuxtjs/google-adsense'
   ],
 
   i18n: {
@@ -138,9 +137,9 @@ export default {
     overlayBottom: true
   },
 
-  'google-gtag': {
-    id: process.env.GA_TRACKING_ID
-  },
+  // 'google-gtag': {
+  //   id: process.env.GA_TRACKING_ID
+  // },
 
   publicRuntimeConfig: {
     API_BASE: process.env.API_BASE,
