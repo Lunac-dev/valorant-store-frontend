@@ -96,6 +96,10 @@
     <h2 v-else style="margin-top: 10px;">
       {{ $t('store-night-market-close') }}
     </h2>
+    <adsbygoogle
+      :ad-slot="'3401103391'"
+      :ad-format="'autorelaxed'"
+    />
   </v-container>
 </template>
 

@@ -45,6 +45,7 @@
     </v-container>
     <adsbygoogle
       :ad-slot="'6190084110'"
+      :ad-format="'auto'"
     />
   </div>
 </template>
