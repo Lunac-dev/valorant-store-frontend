@@ -14,11 +14,6 @@
       </div>
     </div>
     <v-container>
-      <adsbygoogle
-        :ad-slot="'6190084110'"
-        :ad-style="{ display: 'block' }"
-        :ad-format="'auto'"
-      />
       <h1 class="text-center">
         Weapons
       </h1>
@@ -48,6 +43,9 @@
         </v-col>
       </v-row>
     </v-container>
+    <adsbygoogle
+      :ad-slot="'6190084110'"
+    />
   </div>
 </template>
 

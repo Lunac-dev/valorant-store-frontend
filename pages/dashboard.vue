@@ -156,11 +156,40 @@
         </v-card>
       </v-col>
     </v-row>
-    <adsbygoogle
-      :ad-slot="'8740225833'"
-      :ad-style="{ display: 'block' }"
-      :ad-format="'auto'"
-    />
+    <v-row>
+      <v-col cols="12" sm="6">
+        <v-card
+          elevation="2"
+          class="pa-5"
+          width="100vh"
+          height="100%"
+        >
+          <h4>
+            Ads
+          </h4>
+          <adsbygoogle
+            :ad-slot="'8740225833'"
+            :ad-format="'auto'"
+          />
+        </v-card>
+      </v-col>
+      <v-col cols="12" sm="6">
+        <v-card
+          elevation="2"
+          class="pa-5"
+          width="100vh"
+          height="100%"
+        >
+          <h4>
+            Ads
+          </h4>
+          <adsbygoogle
+            :ad-slot="'5696642981'"
+            :ad-format="'auto'"
+          />
+        </v-card>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
