@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 class="vtitle">
-      {{ $t('dashboard-title')}}, {{ $store.state.auth.user.username }}
+      {{ $t('dashboard-title') }}, {{ $store.state.auth.user.username }}
     </h1>
     <v-btn
       color="error"
@@ -9,10 +9,10 @@
       text
       @click="viewdate()"
     >
-    <v-icon left>
-      mdi-clock-check-outline
-    </v-icon>
-    <h3 v-text="date" />
+      <v-icon left>
+        mdi-clock-check-outline
+      </v-icon>
+      <h3 v-text="date" />
     </v-btn>
     <v-row style="margin-top: 2px;">
       <v-col cols="12" sm="6">
@@ -22,7 +22,7 @@
           width="100vh"
           height="100%"
         >
-          <h1>{{ $t('dashboard-wallet')}}</h1>
+          <h1>{{ $t('dashboard-wallet') }}</h1>
           <v-row>
             <v-col cols="12" sm="6">
               <h3>Valorant Points</h3>
@@ -80,8 +80,7 @@
                     :src="tmp.banner_url"
                     aspect-ratio="1.4"
                     contain
-                  >
-                  </v-img>
+                  />
                 </a>
                 <v-card-subtitle>
                   {{ tmp.title }}
@@ -157,6 +156,11 @@
         </v-card>
       </v-col>
     </v-row>
+    <adsbygoogle
+      :ad-slot="'8740225833'"
+      :ad-style="{ display: 'block' }"
+      :ad-format="'auto'"
+    />
   </v-container>
 </template>
 

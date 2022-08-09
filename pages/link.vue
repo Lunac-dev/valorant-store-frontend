@@ -93,6 +93,11 @@
         </v-card>
       </v-col>
     </v-row>
+    <adsbygoogle
+      :ad-slot="'9526693890'"
+      :ad-style="{ display: 'block' }"
+      :ad-format="'auto'"
+    />
   </v-container>
 </template>
 

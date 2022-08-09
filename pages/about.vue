@@ -37,6 +37,11 @@
         </v-card>
       </div>
     </div>
+    <adsbygoogle
+      :ad-slot="'4143888168'"
+      :ad-style="{ display: 'block' }"
+      :ad-format="'auto'"
+    />
     <div class="pt-10">
       <div class="v-responsive d-flex align-center mx-auto justify-center" style="height: 100%; max-width: 100vh; width: 100%;">
         <v-card
