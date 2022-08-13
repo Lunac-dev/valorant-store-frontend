@@ -32,7 +32,7 @@
           class="mx-auto c1"
           max-width="100%"
           hover
-          @click="viewvideo(weapon.videosrc)"
+          @click="viewskin(weapon.uuid)"
         >
           <v-img
             :src="/images/ + weapon.tierid + '.png'"
@@ -67,7 +67,7 @@
           class="mx-auto c2"
           max-width="100%"
           hover
-          @click="viewvideo(weapon.videosrc)"
+          @click="viewskin(weapon.uuid)"
         >
           <v-img
             :src="/images/ + weapon.tierid + '.png'"
@@ -184,7 +184,7 @@ export default {
           continue
         }
         this.storeoffers.push(
-          { vp: stores[k].vp, name: stores[k].name, imgsrc: stores[k].imgsrc, videosrc: stores[k].videosrc, tierid: stores[k].tierid }
+          { uuid: stores[k].uuid, vp: stores[k].vp, name: stores[k].name, imgsrc: stores[k].imgsrc, videosrc: stores[k].videosrc, tierid: stores[k].tierid }
         )
       }
       this.$swal.close()
@@ -196,29 +196,13 @@ export default {
           continue
         }
         this.bonusoffers.push(
-          { vp: stores[k].vp, vpold: stores[k].vpold, name: stores[k].name, imgsrc: stores[k].imgsrc, videosrc: stores[k].videosrc, tierid: stores[k].tierid }
+          { uuid: stores[k].uuid, vp: stores[k].vp, vpold: stores[k].vpold, name: stores[k].name, imgsrc: stores[k].imgsrc, videosrc: stores[k].videosrc, tierid: stores[k].tierid }
         )
       }
     },
 
-    viewvideo (src) {
-      if (String(src) !== 'null') {
-        const video = document.createElement('video')
-        video.setAttribute('controls', '')
-        video.src = src
-        video.preload = 'metadata'
-        video.style.width = '100%'
-        video.autoplay = true
-        video.loop = true
-        this.$swal({
-          html: video,
-          width: '80%'
-        })
-      } else {
-        this.$swal({
-          title: 'No video available.'
-        })
-      }
+    viewskin (uuid) {
+      window.open('/skin/' + uuid, '_blank')
     },
 
     viewdate () {

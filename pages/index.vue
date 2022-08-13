@@ -22,6 +22,18 @@
           >
             {{ $t('index-dashboard') }}
           </v-btn>
+          <v-btn
+            href="https://apps.apple.com/app/id1637273546"
+            color="error"
+            x-large
+            class="mt-5"
+            target="_blank"
+          >
+            <v-icon left>
+              mdi-apple
+            </v-icon>
+            App Store
+          </v-btn>
         </v-col>
       </v-row>
     </v-container>

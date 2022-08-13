@@ -75,6 +75,45 @@
       <div class="v-responsive d-flex align-center mx-auto justify-center" style="height: 100%; max-width: 100vh; width: 100%;">
         <v-card
           elevation="2"
+          class="pa-5"
+          width="100vh"
+        >
+          <v-row align-content="center">
+            <v-col align="center">
+              <v-img
+                src="/images/iosapp.png"
+                height="250px"
+                width="400px"
+                contain
+                style="border-radius: 10%"
+              />
+            </v-col>
+            <v-col align="center">
+              <h1>iOS App</h1>
+              <p class="text--secondary">
+                {{ $t('about-iosapp') }}
+              </p>
+              <v-btn
+                href="https://apps.apple.com/app/id1637273546"
+                color="error"
+                x-large
+                class="mt-5"
+                target="_blank"
+              >
+                <v-icon left>
+                  mdi-apple
+                </v-icon>
+                App Store
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-card>
+      </div>
+    </div>
+    <div class="pt-10">
+      <div class="v-responsive d-flex align-center mx-auto justify-center" style="height: 100%; max-width: 100vh; width: 100%;">
+        <v-card
+          elevation="2"
           class="pa-5 text-center"
           width="100vh"
         >

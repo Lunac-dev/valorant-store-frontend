@@ -23,7 +23,7 @@
             class="mx-auto c1"
             max-width="100%"
             hover
-            @click="viewvideo(weapon.video)"
+            @click="viewskin(weapon.uuid)"
           >
             <v-img
               :src="weapon.displayIcon"
@@ -43,10 +43,13 @@
         </v-col>
       </v-row>
     </v-container>
-    <adsbygoogle
-      :ad-slot="'6190084110'"
-      :ad-format="'auto'"
-    />
+    <div class="mx-auto d-flex flex-no-wrap justify-center">
+      <h5>Ads</h5>
+      <adsbygoogle
+        :ad-slot="'6190084110'"
+        :ad-format="'auto'"
+      />
+    </div>
   </div>
 </template>
 
@@ -85,24 +88,8 @@ export default {
       }
     },
 
-    viewvideo (src) {
-      if (String(src) !== 'null') {
-        const video = document.createElement('video')
-        video.setAttribute('controls', '')
-        video.src = src
-        video.preload = 'metadata'
-        video.style.width = '100%'
-        video.autoplay = true
-        video.loop = true
-        this.$swal({
-          html: video,
-          width: '80%'
-        })
-      } else {
-        this.$swal({
-          title: 'No video available.'
-        })
-      }
+    viewskin (uuid) {
+      window.open('/skin/' + uuid, '_blank')
     }
   }
 }
