@@ -80,13 +80,10 @@
         </v-card>
       </v-col>
     </v-row>
-    <div class="mx-auto d-flex flex-no-wrap justify-center">
-      <h5>Ads</h5>
-      <adsbygoogle
-        :ad-slot="'1552064594'"
-        :ad-format="'auto'"
-      />
-    </div>
+    <adsbygoogle
+      :ad-slot="'1552064594'"
+      :ad-format="'auto'"
+    />
     <v-card
       v-if="alert == undefined"
       elevation="2"
@@ -124,13 +121,10 @@
         </v-tab-item>
       </v-tabs-items>
     </v-card>
-    <div class="mx-auto d-flex flex-no-wrap justify-center">
-      <h5>Ads</h5>
-      <adsbygoogle
-        :ad-slot="'6566671832'"
-        :ad-format="'auto'"
-      />
-    </div>
+    <adsbygoogle
+      :ad-slot="'6566671832'"
+      :ad-format="'auto'"
+    />
     <v-card
       v-if="alert == undefined"
       elevation="2"

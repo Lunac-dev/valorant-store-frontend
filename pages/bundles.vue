@@ -43,13 +43,10 @@
         </v-col>
       </v-row>
     </v-container>
-    <div class="mx-auto d-flex flex-no-wrap justify-center">
-      <h5>Ads</h5>
-      <adsbygoogle
-        :ad-slot="'6190084110'"
-        :ad-format="'auto'"
-      />
-    </div>
+    <adsbygoogle
+      :ad-slot="'6190084110'"
+      :ad-format="'auto'"
+    />
   </div>
 </template>
 
