@@ -1,6 +1,6 @@
 {
   "_comment": "Global", 
-  "not-link": "L'association de votre compte n'est pas terminée. Vous devez lier votre compte Riot à partir de Gestionnaire de compte.",
+  "not-link": "L'association de votre compte n'est pas terminée. Vous devez lier votre compte Riot à partir de la page Gestionnaire de compte.",
   "index-invitebot": "Inviter le bot",
   "index-dashboard": "Dashboard",
   "about-subtitle": "Nous vous proposons un Bot Discord, et un site qui facilite votre utilisation de Valorant",
@@ -9,7 +9,7 @@
   "about-safe": "Tout le code source est disponible sur Github",
   "about-iosapp": "Get yourself an app for your iPhone and get comfy!",
   "link-warning": "Attention, le nom du compte Riot n'est pas votre Riot ID ! Cela signifie que ce n'est pas le nom sous lequel vous jouez toujours à VALORANT !",
-  "link-warning2": "Une fois cette opération effectuée, elle sera complètement supprimée de la base de données. Veuillez noter qu'elle ne peut pas être annulée.",
+  "link-warning2": "Une fois cette opération effectuée, elle sera complètement supprimée de la base de données. Veuillez noter que cette opération ne peut pas être annulée.",
   "store-update": "Vous pouvez consulter votre boutique quotidienne ici. Si vous ne voyez rien, cliquez sur le bouton Mettre à jour la boutique.",
   "login-wait": "Veuillez patienter, redirection en cours...",
   "top-navbar-lang": "Langue",
@@ -27,7 +27,7 @@
   "store-update-store": "Mettre à jour la boutique",
   "store-share": "Partager la boutique",
   "store-night-market": "Night Market",
-  "store-night-market-close": "Night market is not open.",
+  "store-night-market-close": "Le Night market est fermé.",
   "link-link-account": "Lier votre compte Riot",
   "link-unlink-account": "Délier votre compte Riot"
 }
