@@ -43,6 +43,7 @@
 <script>
 export default {
   name: 'IndexPage',
+  middleware: 'maintenance',
 
   head () {
     return {

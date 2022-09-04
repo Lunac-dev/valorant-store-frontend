@@ -3,19 +3,6 @@
     <h1 class="vtitle">
       {{ $t('navbar-daily-store') }}
     </h1>
-    <p>{{ $t('store-update') }}</p>
-    <v-btn
-      color="error"
-      large
-      outlined
-      style="margin-left: 7 px;"
-      @click="twitterShare()"
-    >
-      <v-icon>
-        mdi-twitter
-      </v-icon>
-      {{ $t('store-share') }}
-    </v-btn>
     <v-btn
       color="error"
       large
@@ -130,15 +117,22 @@ export default {
 
   methods: {
     async loadStores () {
-      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/getshop`, { headers: { discordid: this.$store.state.auth.user.id } })
+      if (this.$route.params.id === undefined) {
+        this.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'User not found.'
+        })
+        return
+      }
+      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/getshop2`, { headers: { discordid: this.$route.params.id } })
       if (response.data.status !== undefined) {
         if (response.data.status === 'FAILED') {
           this.$swal({
             icon: 'error',
             title: 'Oops...',
-            text: this.$t('not-link')
+            text: 'User not found.'
           })
-          this.$router.go(-1)
         } else {
           this.$swal({
             icon: 'error',
@@ -147,7 +141,7 @@ export default {
           })
         }
       } else {
-        const response2 = await this.$axios.get(`${this.$config.API_BASE}/valorant/getnightmarket`, { headers: { discordid: this.$store.state.auth.user.id } })
+        const response2 = await this.$axios.get(`${this.$config.API_BASE}/valorant/getnightmarket2`, { headers: { discordid: this.$route.params.id } })
         this.setStores(response.data)
         this.setNightMarket(response2.data)
       }
@@ -212,15 +206,6 @@ export default {
         title: 'Last updated time',
         text: this.date
       })
-    },
-
-    twitterShare () {
-      const baseUrl = 'https://twitter.com/intent/tweet?'
-      const text = ['text', 'Look at my store!' + '\n\n' + '#ValorantStoreChecker' + '\n']
-      const url = ['url', 'https://valorantstore.net/stores/' + btoa(this.$store.state.auth.user.id)]
-      const parameter = new URLSearchParams([text, url]).toString()
-      const shareUrl = `${baseUrl}${parameter}`
-      window.open(shareUrl, 'twitter', 'top=200,left=300,width=600,height=400')
     }
   }
 }

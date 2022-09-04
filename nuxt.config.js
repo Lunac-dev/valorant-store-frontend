@@ -142,7 +142,8 @@ export default {
     id: process.env.GA_ADSENSE_ID,
     analyticsUacct: process.env.GA_TRACKING_ID,
     analyticsDomainName: process.env.DOMAIN,
-    pageLevelAds: false
+    pageLevelAds: true,
+    test: true
   },
 
   'google-gtag': {

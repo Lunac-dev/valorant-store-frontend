@@ -9,7 +9,7 @@
           {{ bundlename }}
         </h1>
         <h2>
-          COLLECTION
+          COLLECTION // {{ price }} VP
         </h2>
       </div>
     </div>
@@ -53,6 +53,7 @@
 <script>
 export default {
   name: 'BundlesPage',
+  middleware: 'maintenance',
 
   data () {
     return {
@@ -60,7 +61,8 @@ export default {
         backgroundImage: ''
       },
       bundlename: undefined,
-      weapons: undefined
+      weapons: undefined,
+      price: undefined
     }
   },
 
@@ -81,12 +83,13 @@ export default {
       for (const k in response.data) {
         this.mtop2.backgroundImage = "url('" + response.data[k].displayIcon + "')"
         this.bundlename = response.data[k].name
+        this.price = response.data[k].price
         this.weapons = response.data[k].weapons
       }
     },
 
     viewskin (uuid) {
-      window.open('/skin/' + uuid, '_blank')
+      window.open('/skin/' + uuid, '_self')
     }
   }
 }

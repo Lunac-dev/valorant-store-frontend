@@ -103,7 +103,7 @@
 <script>
 export default {
   name: 'LinkManagerPage',
-  middleware: 'auth',
+  middleware: ['auth', 'maintenance'],
   data () {
     return {
       regions: [

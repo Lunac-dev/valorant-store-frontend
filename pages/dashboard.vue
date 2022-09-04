@@ -196,7 +196,7 @@
 <script>
 export default {
   name: 'DashboardPage',
-  middleware: 'auth',
+  middleware: ['auth', 'maintenance'],
 
   data () {
     return {

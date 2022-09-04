@@ -7,17 +7,45 @@
     >
       <v-app-bar-nav-icon @click="drawer=!drawer" />
       <v-spacer />
-      <v-menu offset-y rounded="Removed" transition="slide-y-transition">
+      <v-menu open-on-hover offset-y rounded="Large" transition="slide-y-transition">
         <template v-slot:activator="{ on, attrs }">
           <v-btn
-            color="error"
-            class="mr-10"
-            outlined
-            large
+            text
             v-bind="attrs"
             v-on="on"
           >
-            {{ $t('top-navbar-lang') }}
+            <v-icon>
+              mdi-help-circle-outline
+            </v-icon>
+            <v-icon>
+              mdi-menu-down
+            </v-icon>
+          </v-btn>
+        </template>
+        <v-list
+          nav
+        >
+          <v-list-item href="https://docs.valorantstore.net/" target="_blank">
+            <v-list-item-title>Offical Document</v-list-item-title>
+          </v-list-item>
+          <v-list-item href="https://dev.valorantstore.net/" target="_blank">
+            <v-list-item-title>Public API Document</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+      <v-menu open-on-hover offset-y rounded="Large" transition="slide-y-transition">
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            text
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon>
+              mdi-translate
+            </v-icon>
+            <v-icon>
+              mdi-menu-down
+            </v-icon>
           </v-btn>
         </template>
         <v-list
@@ -45,7 +73,7 @@
       >
         {{ $t('top-navbar-login') }}
       </v-btn>
-      <v-menu offset-y v-else rounded="Removed" transition="slide-y-transition">
+      <v-menu v-else open-on-hover offset-y rounded="Large" transition="slide-y-transition">
         <template v-slot:activator="{ on, attrs }">
           <v-avatar
             v-bind="attrs"
@@ -161,6 +189,7 @@ export default {
       loginonlyitems: [
         ['mdi-view-dashboard', `${this.$t('navbar-dashboard')}`, 'dashboard', true],
         ['mdi-cart', `${this.$t('navbar-daily-store')}`, 'store', true],
+        ['mdi-content-save-outline', `${this.$t('navbar-inventory')}`, 'inventory', true],
         ['mdi-account-cog-outline', `${this.$t('navbar-link-manager')}`, 'link', true]
       ],
       avatar: null
