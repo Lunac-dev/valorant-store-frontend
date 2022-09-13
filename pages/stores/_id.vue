@@ -94,7 +94,7 @@
 <script>
 export default {
   name: 'StorePage',
-  middleware: ['auth', 'maintenance'],
+  middleware: 'maintenance',
 
   data () {
     return {

@@ -43,10 +43,13 @@
         </v-col>
       </v-row>
     </v-container>
-    <adsbygoogle
-      :ad-slot="'6190084110'"
-      :ad-format="'auto'"
-    />
+    <div style="text-align: center">
+      <adsbygoogle
+        ad-slot="6190084110"
+        :ad-style="{ display: 'block', height: '90px' }"
+        ad-format="horizontal"
+      />
+    </div>
   </div>
 </template>
 
