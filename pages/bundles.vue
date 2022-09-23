@@ -14,6 +14,40 @@
       </div>
     </div>
     <v-container>
+      <v-row>
+        <v-col cols="12" sm="6">
+          <v-card
+            elevation="2"
+            class="pa-5"
+            width="100vh"
+            height="100%"
+          >
+            <h4>
+              Ads
+            </h4>
+            <adsbygoogle
+              :ad-slot="'6190084110'"
+              :ad-format="'auto'"
+            />
+          </v-card>
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-card
+            elevation="2"
+            class="pa-5"
+            width="100vh"
+            height="100%"
+          >
+            <h4>
+              Ads
+            </h4>
+            <adsbygoogle
+              :ad-slot="'4143888168'"
+              :ad-format="'auto'"
+            />
+          </v-card>
+        </v-col>
+      </v-row>
       <h1 class="text-center">
         Weapons
       </h1>
@@ -42,13 +76,6 @@
           </v-card>
         </v-col>
       </v-row>
-      <div style="text-align: center">
-        <adsbygoogle
-          ad-slot="6190084110"
-          :ad-style="{ display: 'block', height: '90px' }"
-          ad-format="horizontal"
-        />
-      </div>
     </v-container>
   </div>
 </template>
