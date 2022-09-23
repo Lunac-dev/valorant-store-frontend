@@ -71,7 +71,7 @@
 <script>
 export default {
   name: 'InventoryPage',
-  middleware: ['auth', 'maintenance'],
+  middleware: 'auth',
 
   data () {
     return {

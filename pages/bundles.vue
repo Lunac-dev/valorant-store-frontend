@@ -42,21 +42,20 @@
           </v-card>
         </v-col>
       </v-row>
+      <div style="text-align: center">
+        <adsbygoogle
+          ad-slot="6190084110"
+          :ad-style="{ display: 'block', height: '90px' }"
+          ad-format="horizontal"
+        />
+      </div>
     </v-container>
-    <div style="text-align: center">
-      <adsbygoogle
-        ad-slot="6190084110"
-        :ad-style="{ display: 'block', height: '90px' }"
-        ad-format="horizontal"
-      />
-    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'BundlesPage',
-  middleware: 'maintenance',
 
   data () {
     return {

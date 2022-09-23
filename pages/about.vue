@@ -164,7 +164,6 @@
 <script>
 export default {
   name: 'AboutPage',
-  middleware: 'maintenance',
 
   head () {
     return {
