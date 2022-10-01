@@ -82,9 +82,8 @@
     </v-row>
     <div style="text-align: center">
       <adsbygoogle
-        ad-slot="1552064594"
-        :ad-style="{ display: 'block', height: '90px' }"
-        ad-format="horizontal"
+        :ad-slot="'1552064594'"
+        :ad-format="'horizontal'"
       />
     </div>
     <v-card
@@ -126,9 +125,8 @@
     </v-card>
     <div style="text-align: center">
       <adsbygoogle
-        ad-slot="6566671832"
-        :ad-style="{ display: 'block', height: '90px' }"
-        ad-format="horizontal"
+        :ad-slot="'6566671832'"
+        :ad-format="'horizontal'"
       />
     </div>
     <v-card
@@ -190,6 +188,10 @@ export default {
 
   mounted () {
     this.loadSkin()
+    // this.interval = setInterval(() => {
+    //   const video = document.getElementsByTagName('video')
+    //   console.log(this.isVisible(video))
+    // }, 1000)
   },
 
   methods: {
@@ -217,6 +219,17 @@ export default {
           })
         })
     }
+
+    // isVisible (player) {
+    //   const rect = player.getBoundingClientRect()
+    //   return (
+    //     rect.top >= 0 &&
+    //     rect.left >= 0 &&
+    //     rect.bottom <=
+    //       (window.innerHeight || document.documentElement.clientHeight) &&
+    //     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    //   )
+    // }
   }
 }
 </script>

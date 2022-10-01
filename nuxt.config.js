@@ -77,6 +77,7 @@ export default {
       { code: 'en', name: 'English', iso: 'en-US', file: 'en.json' },
       { code: 'de', name: 'German', iso: 'de-DE', file: 'de.json' },
       { code: 'fr', name: 'French', iso: 'fr-FR', file: 'fr.json' },
+      { code: 'tr', name: 'Turkish', iso: 'tr-TR', file: 'tr.json' },
     ],
     defaultLocale: 'en',
     langDir: 'locales/',
