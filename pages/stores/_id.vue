@@ -85,7 +85,7 @@
       {{ $t('store-night-market-close') }}
     </h2>
     <adsbygoogle
-      :ad-slot="'3401103391'"
+      :ad-slot="'7973975438'"
       :ad-format="'autorelaxed'"
     />
   </v-container>

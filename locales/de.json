@@ -20,6 +20,8 @@
   "navbar-link-manager": "Link Manager",
   "navbar-bundles": "Bündel",
   "navbar-inventory": "Inventory",
+  "navbar-reminder": "Reminder",
+  "navbar-stats": "Stats",
   "dashboard-title": "Hi",
   "dashboard-wallet": "Brieftasche",
   "dashboard-daily": "Tägliche Missionen",
@@ -29,5 +31,9 @@
   "store-night-market": "Night Market",
   "store-night-market-close": "Night Market ist nicht geöffnet",
   "link-link-account": "Verknüpfe dein Riot-Konto",
-  "link-unlink-account": "Entkoppel dein Riot-Konto"
+  "link-unlink-account": "Entkoppel dein Riot-Konto",
+  "link-warning3": "At this time, it is no longer possible to link accounts from the web. You can log in and log out only from the bot.",
+  "link-step-1": "First, join the Discord community!",
+  "link-step-2": "Then find the bot from the user on the right and open a DM!",
+  "link-step-3": "Finally, send the login command via DM and you're logged in!"
 }

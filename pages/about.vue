@@ -132,7 +132,7 @@
               />
             </v-col>
             <v-col align="center">
-              <h1>Safe?</h1>
+              <h1>Is this safe?</h1>
               <p class="text--secondary">
                 {{ $t('about-safe') }}
               </p>

@@ -3,7 +3,112 @@
     <h1 class="vtitle">
       {{ $t('navbar-link-manager') }}
     </h1>
-    <v-row>
+    <v-alert
+      border="bottom"
+      colored-border
+      type="warning"
+      elevation="2"
+    >
+      {{ $t('link-warning3') }}
+    </v-alert>
+    <v-card>
+      <v-stepper v-model="e1">
+        <v-stepper-header>
+          <v-stepper-step
+            :complete="e1 > 1"
+            step="1"
+            color="error"
+          >
+            Step 1
+          </v-stepper-step>
+
+          <v-divider />
+
+          <v-stepper-step
+            :complete="e1 > 2"
+            step="2"
+            color="error"
+          >
+            Step 2
+          </v-stepper-step>
+
+          <v-divider />
+
+          <v-stepper-step
+            step="3"
+            color="error"
+          >
+            Step 3
+          </v-stepper-step>
+        </v-stepper-header>
+
+        <v-stepper-items>
+          <v-stepper-content step="1">
+            <v-card
+              class="pa-5"
+            >
+              <h2>{{ $t('link-step-1') }}</h2>
+              <v-btn
+                color="primary"
+                href="https://discord.gg/valorantstore-net"
+              >
+                Join our Discord Community!
+              </v-btn>
+            </v-card>
+
+            <v-btn
+              color="error"
+              @click="e1 = 2"
+            >
+              Continue
+            </v-btn>
+          </v-stepper-content>
+
+          <v-stepper-content step="2">
+            <v-card
+              class="pa-5"
+            >
+              <h2>{{ $t('link-step-2') }}</h2>
+              <v-img
+                src="/images/step2.png"
+                height="250px"
+                width="400px"
+                contain
+              />
+            </v-card>
+
+            <v-btn
+              color="error"
+              @click="e1 = 3"
+            >
+              Continue
+            </v-btn>
+          </v-stepper-content>
+
+          <v-stepper-content step="3">
+            <v-card
+              class="pa-5"
+            >
+              <h2>{{ $t('link-step-3') }}</h2>
+              <v-img
+                src="/images/step3.png"
+                height="250px"
+                width="400px"
+                contain
+              />
+            </v-card>
+
+            <v-btn
+              color="error"
+              @click="e1 = 1"
+            >
+              Back to Step 1
+            </v-btn>
+          </v-stepper-content>
+        </v-stepper-items>
+      </v-stepper>
+    </v-card>
+    <!-- <v-row>
       <v-col cols="12" sm="6">
         <v-card
           elevation="2"
@@ -92,7 +197,7 @@
           </v-btn>
         </v-card>
       </v-col>
-    </v-row>
+    </v-row> -->
     <div style="text-align: center">
       <adsbygoogle
         :ad-slot="'9526693890'"
@@ -131,7 +236,8 @@ export default {
       riotuserpassword: null,
       riotregion: null,
       relogin: false,
-      required: value => !!value || 'Please be sure to fill out the form or select.'
+      required: value => !!value || 'Please be sure to fill out the form or select.',
+      e1: 1
     }
   },
 

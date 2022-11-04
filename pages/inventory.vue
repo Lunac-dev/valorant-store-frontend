@@ -14,13 +14,6 @@
       </v-icon>
       <h3 v-text="date" />
     </v-btn>
-    <v-alert
-      type="warning"
-      dense
-      text
-    >
-      This feature is still in the testing phase and may be removed in the future.
-    </v-alert>
     <v-card
       elevation="2"
     >

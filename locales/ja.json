@@ -20,6 +20,8 @@
   "navbar-link-manager": "連携マネージャー",
   "navbar-bundles": "バンドル",
   "navbar-inventory": "インベントリ",
+  "navbar-reminder": "リマインダー",
+  "navbar-stats": "統計",
   "dashboard-title": "こんにちは",
   "dashboard-wallet": "ウォレット",
   "dashboard-daily": "デイリーミッション",
@@ -29,5 +31,9 @@
   "store-night-market": "ナイトマーケット",
   "store-night-market-close": "ナイトマーケットは開催されていません。",
   "link-link-account": "Riotアカウントと連携する",
-  "link-unlink-account": "Riotアカウントとの連携を解除する"
+  "link-unlink-account": "Riotアカウントとの連携を解除する",
+  "link-warning3": "現時点ではWeb上からのアカウント連携ができなくなりました。ボットからのみログイン、ログアウトができます。",
+  "link-step-1": "まずはDiscordコミュニティに参加！",
+  "link-step-2": "右のユーザーからボットを探してDMを開く！",
+  "link-step-3": "DMでログインコマンドを送信してログイン完了！"
 }

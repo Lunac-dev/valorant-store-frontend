@@ -187,7 +187,8 @@ export default {
         ['mdi-home-outline', `${this.$t('navbar-home')}`, 'index', true],
         // ['mdi-trophy-variant-outline', 'VCT-Matches', 'vct-matches', true],
         ['mdi-information-outline', `${this.$t('navbar-about')}`, 'about', true],
-        ['mdi-archive-outline', `${this.$t('navbar-bundles')}`, 'bundles', true]
+        ['mdi-archive-outline', `${this.$t('navbar-bundles')}`, 'bundles', true],
+        ['mdi-chart-box-outline', `${this.$t('navbar-stats')}`, 'stats', true]
       ],
       loginonlyitems: [
         ['mdi-view-dashboard', `${this.$t('navbar-dashboard')}`, 'dashboard', true],
