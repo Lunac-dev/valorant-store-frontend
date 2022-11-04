@@ -84,15 +84,9 @@
 export default {
   name: 'BundlesPage',
 
-  data () {
-    return {
-      mtop2: {
-        backgroundImage: ''
-      },
-      bundlename: undefined,
-      weapons: undefined,
-      price: undefined
-    }
+  async asyncData ({ $axios, $config }) {
+    const response = await $axios.$get(`${$config.API_BASE}/valorant/store-featured`)
+    return { bundlename: response[0].name, price: response[0].price, weapons: response[0].weapons, mtop2: { backgroundImage: "url('" + response[0].displayIcon + "')" } }
   },
 
   head () {
@@ -101,22 +95,7 @@ export default {
     }
   },
 
-  mounted () {
-    this.loadBundles()
-  },
-
   methods: {
-    async loadBundles () {
-      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/store-featured`)
-
-      for (const k in response.data) {
-        this.mtop2.backgroundImage = "url('" + response.data[k].displayIcon + "')"
-        this.bundlename = response.data[k].name
-        this.price = response.data[k].price
-        this.weapons = response.data[k].weapons
-      }
-    },
-
     viewskin (uuid) {
       window.open('/skin/' + uuid, '_self')
     }
