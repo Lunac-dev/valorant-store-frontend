@@ -70,7 +70,7 @@
             >
               <h2>{{ $t('link-step-2') }}</h2>
               <v-img
-                src="/images/step2.png"
+                src="/images/step2.PNG"
                 height="250px"
                 width="400px"
                 contain
@@ -91,7 +91,7 @@
             >
               <h2>{{ $t('link-step-3') }}</h2>
               <v-img
-                src="/images/step3.png"
+                src="/images/step3.PNG"
                 height="250px"
                 width="400px"
                 contain
