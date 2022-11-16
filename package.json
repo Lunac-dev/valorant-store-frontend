@@ -12,7 +12,7 @@
     "lintfix": "npm run lint:js -- --fix"
   },
   "dependencies": {
-    "@nuxtjs/auth-next": "5.0.0-1648802546.c9880dc",
+    "@nuxtjs/auth-next": "5.0.0-1667386184.dfbbb54",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/google-adsense": "^2.0.0",
     "@nuxtjs/google-gtag": "^1.0.4",

@@ -1,12 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  loadingIndicator: {
-    name: 'circle',
-    color: '#fa4454',
-    background: 'white'
-  },
-  loading: true,
+  ssr: true,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - Valorant Store Checker',
@@ -103,8 +98,9 @@ export default {
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
           warning: colors.amber.base,
-          error: "#fa4454",
-          success: colors.green.accent3
+          error: '#fa4454',
+          success: colors.green.accent3,
+          discord: '#7289da'
         }
       }
     }
@@ -128,15 +124,20 @@ export default {
     strategies: {
       discord: {
         clientId: process.env.CLIENT_ID,
-        clientSecret: process.env.CLIENT_SECRET
+        clientSecret: process.env.CLIENT_SECRET,
+        grantType: process.env.GRANT_TYPE,
+        scope: ['identify'],
+        redirectUri: process.env.REDIRECT_URI,
+        codeChallengeMethod: ''
       },
     },
     redirect: {
       login: '/login',
       logout: '/',
-      callback: '/login',
-      home: '/'
-    }
+      callback: '/callback',
+      home: '/dashboard'
+    },
+    resetOnError: true
   },
 
   'google-adsense': {

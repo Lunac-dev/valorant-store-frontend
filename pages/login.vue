@@ -1,15 +1,28 @@
 <template>
-  <h1 class="title">{{ $t('login-wait') }}</h1>
+  <v-container>
+    <v-card
+      class="text-center pa-10"
+      elevation="2"
+    >
+      <h1>Welcome to VSC</h1>
+      <v-btn
+        v-if="!$store.state.auth.loggedIn"
+        elevation="2"
+        color="discord"
+        @click="discordAuthenticate"
+      >
+        Login with Discord
+      </v-btn>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
 export default {
   name: 'LoginPage',
-  mounted () {
-    if (!this.$store.state.auth.loggedIn && !this.$route.query.code) {
+  methods: {
+    discordAuthenticate () {
       this.$auth.loginWith('discord')
-    } else if (this.$store.state.auth.loggedIn) {
-      this.$router.push('/')
     }
   }
 }
