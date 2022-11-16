@@ -29,7 +29,7 @@ export default {
       },
       {
         rel: 'stylesheet',
-        href: 'http://fonts.cdnfonts.com/css/league-spartan',
+        href: 'https://fonts.cdnfonts.com/css/league-spartan',
       }
     ]
   },
@@ -126,10 +126,7 @@ export default {
       discord: {
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
-        grantType: process.env.GRANT_TYPE,
-        scope: ['identify'],
         redirectUri: process.env.REDIRECT_URI,
-        codeChallengeMethod: ''
       },
     },
     redirect: {
@@ -137,6 +134,14 @@ export default {
       logout: '/',
       callback: '/callback',
       home: '/dashboard'
+    },
+    cookie: {
+      prefix: 'auth.',
+      options: {
+        path: '/',
+        maxAge: '604800',
+        secure: process.env.COOKIE_SECURE
+      }
     },
     resetOnError: true
   },

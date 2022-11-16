@@ -1,6 +1,12 @@
 <template>
   <v-container>
-    <h1 class="title">{{ $t('login-wait') }}</h1>
+    <v-alert
+      v-if="$route.query.error"
+      type="error"
+    >
+      {{ $route.query.error }}: {{ $route.query.error_description }}
+    </v-alert>
+    <h1 v-if="!$route.query.error" class="title">{{ $t('login-wait') }}</h1>
   </v-container>
 </template>
 
