@@ -66,6 +66,9 @@
           <v-list-item v-if="$i18n.locale !== 'tr'" @click="() => changeLocale('tr')">
             <v-list-item-title>Turkish</v-list-item-title>
           </v-list-item>
+          <v-list-item v-if="$i18n.locale !== 'pl'" @click="() => changeLocale('pl')">
+            <v-list-item-title>Polish</v-list-item-title>
+          </v-list-item>
         </v-list>
       </v-menu>
       <v-btn
