@@ -140,7 +140,8 @@ export default {
       options: {
         path: '/',
         maxAge: '604800',
-        secure: process.env.COOKIE_SECURE
+        secure: true,
+        httpOnly: true
       }
     },
     resetOnError: true
