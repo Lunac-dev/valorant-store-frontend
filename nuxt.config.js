@@ -9,8 +9,14 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' },
+      { hid: 'description', name: 'description', content: 'Check your daily store without launching Valorant! Quick, easy, and simple!' },
+      { hid: 'og:site_name', property: 'og:site_name', content: 'Valorant Store Checker' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:url', property: 'og:url', content: 'https://valorantstore.net/' },
+      { hid: 'og:title', property: 'og:title', content: 'Valorant Store Checker' },
+      { hid: 'og:description', property: 'og:description', content: 'Check your daily store without launching Valorant! Quick, easy, and simple!' },
+      { hid: 'og:image', property: 'og:image', content: 'https://valorantstore.net/img/vsbanner.png' },
+      { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -88,7 +94,8 @@ export default {
       options: {
         maxAge: '604800',
         secure: true,
-        sameSite: 'lax'
+        sameSite: 'lax',
+        domain: '.valorantstore.net'
       }
     },
     localStorage: false,
