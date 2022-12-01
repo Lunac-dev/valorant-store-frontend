@@ -126,7 +126,7 @@ export default {
   },
   async mounted () {
     this.$swal.showLoading()
-    const response = await this.$axios.get('/getstore', { withCredentials: true })
+    const response = await this.$axios.get('/getstore')
     if (response.data.status !== undefined) {
       if (response.data.status === 'FAILED') {
         this.$swal({

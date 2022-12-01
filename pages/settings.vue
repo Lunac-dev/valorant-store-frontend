@@ -198,7 +198,7 @@ export default {
 
   methods: {
     async change() {
-      const submit = await this.$axios.$post('/settings', { private: this.privatestore }, { withCredentials: true })
+      const submit = await this.$axios.$post('/settings', { private: this.privatestore })
       if (submit.status === 200) {
         this.$swal({
           icon: 'success',
@@ -227,7 +227,7 @@ export default {
           return
         }
         // Success
-        const register = await this.$axios.post('/login', { password: this.riotuserpassword, username: this.riotusername, region: this.riotregion, relogin: this.relogin }, { withCredentials: true })
+        const register = await this.$axios.post('/login', { password: this.riotuserpassword, username: this.riotusername, region: this.riotregion, relogin: this.relogin })
         if (register.data.status === 'OK') {
           // Success
           this.$swal({
@@ -271,7 +271,7 @@ export default {
 
     async unlink () {
       this.$swal.showLoading()
-      const unlink = await this.$axios.post('/logout', {}, { withCredentials: true })
+      const unlink = await this.$axios.post('/logout')
       if (unlink.data.status === 'OK') {
         // Success
         this.$swal({

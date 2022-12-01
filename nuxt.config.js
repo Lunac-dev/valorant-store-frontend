@@ -57,6 +57,7 @@ export default {
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: process.env.API_BASE,
+    credentials: true
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -86,7 +87,8 @@ export default {
     cookie: {
       options: {
         maxAge: '604800',
-        secure: true
+        secure: true,
+        sameSite: 'lax'
       }
     },
     localStorage: false,
