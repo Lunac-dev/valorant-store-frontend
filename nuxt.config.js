@@ -62,8 +62,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: process.env.API_BASE,
-    credentials: true
+    baseURL: process.env.API_BASE
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -93,9 +92,7 @@ export default {
     cookie: {
       options: {
         maxAge: '604800',
-        secure: true,
-        sameSite: 'lax',
-        domain: '.valorantstore.net'
+        secure: true
       }
     },
     localStorage: false,

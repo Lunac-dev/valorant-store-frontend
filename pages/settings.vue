@@ -183,8 +183,8 @@ export default {
     }
   },
 
-  async asyncData ({ $axios }) {
-    const response = await $axios.$get('/settings', { withCredentials: true })
+  async asyncData ({ $axios, $auth }) {
+    const response = await $axios.$get('/settings')
     if (response.status === 200) {
       if (response.data.private === 0) {
         return { settings: response.data, privatestore: false}
