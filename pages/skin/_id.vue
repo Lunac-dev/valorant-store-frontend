@@ -10,7 +10,7 @@
       {{ name }}
     </h1>
     <v-btn
-      color="error"
+      color="primary"
       large
       outlined
       @click="copyToClipboard()"
@@ -56,7 +56,7 @@
                   size="80"
                   tile
                 >
-                  <v-img src="/images/vp.png" />
+                  <v-img src="/img/vp.png" />
                 </v-avatar>
               </v-card>
             </v-col>
@@ -72,7 +72,7 @@
                   size="80"
                   tile
                 >
-                  <v-img :src="/images/ + tierid + '.png'" />
+                  <v-img :src="/img/ + tierid + '.png'" />
                 </v-avatar>
               </v-card>
             </v-col>
@@ -98,7 +98,7 @@
       <v-tabs
         v-else
         v-model="tab"
-        color="error"
+        color="primary"
         grow
         show-arrows
         center-active
@@ -188,15 +188,11 @@ export default {
 
   mounted () {
     this.loadSkin()
-    // this.interval = setInterval(() => {
-    //   const video = document.getElementsByTagName('video')
-    //   console.log(this.isVisible(video))
-    // }, 1000)
   },
 
   methods: {
     async loadSkin () {
-      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/skin/${this.$route.params.id}`)
+      const response = await this.$axios.get(`/valorant/skin/${this.$route.params.id}`)
 
       if ('status' in response.data) {
         this.alert = response.data.status

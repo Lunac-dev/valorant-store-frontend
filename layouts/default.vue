@@ -1,38 +1,73 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-app-bar
-      flat
-      app
       fixed
+      app
+      hide-on-scroll
     >
-      <v-app-bar-nav-icon @click="drawer=!drawer" />
-      <v-spacer />
-      <v-menu open-on-hover offset-y rounded="Large" transition="slide-y-transition">
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            text
-            v-bind="attrs"
-            v-on="on"
-          >
-            <v-icon>
-              mdi-help-circle-outline
-            </v-icon>
-            <v-icon>
-              mdi-menu-down
-            </v-icon>
+      <div
+        class="d-flex align-center"
+      >
+        <img src="/img/vsbanner.png" alt="logo" class="hidden-sm-and-down" height="40"/>
+        <v-btn v-for="item in menu" :key="item.icon" :to="item.link" text nuxt tile plain :ripple="false" class="hidden-sm-and-down">
+          {{ item.title }}
+        </v-btn>
+        <v-badge dot overlap class="hidden-sm-and-down">
+          <v-btn text nuxt tile plain :ripple="false" href="https://discord.gg/valorantstore-net" target="_blank">
+            Community
           </v-btn>
+        </v-badge>
+      </div>
+      <v-dialog
+        transition="dialog-top-transition"
+        max-width="600"
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-app-bar-nav-icon class="hidden-md-and-up" v-bind="attrs" v-on="on"/>
         </template>
-        <v-list
-          nav
-        >
-          <v-list-item href="https://docs.valorantstore.net/" target="_blank">
-            <v-list-item-title>Offical Document</v-list-item-title>
-          </v-list-item>
-          <v-list-item href="https://dev.valorantstore.net/" target="_blank">
-            <v-list-item-title>Public API Document</v-list-item-title>
+        <template v-slot:default="dialog">
+          <v-card>
+            <v-toolbar
+              color="primary"
+              dark
+            >Menu</v-toolbar>
+            <v-card-text>
+              <v-list>
+                <v-list-item v-for="item in menu" :key="item.icon" :to="item.link">
+                  <v-list-item-icon>
+                    <v-icon>{{ item.icon }}</v-icon>
+                  </v-list-item-icon>
+                  <v-list-tile>
+                    {{ item.title }}
+                  </v-list-tile>
+                </v-list-item>
+              </v-list>
+            </v-card-text>
+            <v-card-actions class="justify-end">
+              <v-btn
+                text
+                @click="dialog.value = false"
+              >Close</v-btn>
+            </v-card-actions>
+          </v-card>
+        </template>
+      </v-dialog>
+      <!-- <v-menu offset-y rounded="Large" transition="slide-y-transition">
+        <template v-slot:activator="{ on, attrs }">
+          <v-app-bar-nav-icon class="hidden-md-and-up" v-bind="attrs" v-on="on"/>
+        </template>
+        <v-list shaped>
+          <v-list-item v-for="item in menu" :key="item.icon" :to="item.link">
+            <v-list-item-icon>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-tile>
+              {{ item.title }}
+            </v-list-tile>
           </v-list-item>
         </v-list>
-      </v-menu>
+      </v-menu> -->
+      <v-spacer />
       <v-menu open-on-hover offset-y rounded="Large" transition="slide-y-transition">
         <template v-slot:activator="{ on, attrs }">
           <v-btn
@@ -57,7 +92,7 @@
           <v-list-item v-if="$i18n.locale !== 'ja'" @click="() => changeLocale('ja')">
             <v-list-item-title>日本語</v-list-item-title>
           </v-list-item>
-          <v-list-item v-if="$i18n.locale !== 'de'" @click="() => changeLocale('de')">
+          <!-- <v-list-item v-if="$i18n.locale !== 'de'" @click="() => changeLocale('de')">
             <v-list-item-title>Deutsch</v-list-item-title>
           </v-list-item>
           <v-list-item v-if="$i18n.locale !== 'fr'" @click="() => changeLocale('fr')">
@@ -68,42 +103,45 @@
           </v-list-item>
           <v-list-item v-if="$i18n.locale !== 'pl'" @click="() => changeLocale('pl')">
             <v-list-item-title>Polish</v-list-item-title>
-          </v-list-item>
+          </v-list-item> -->
         </v-list>
       </v-menu>
       <v-btn
         v-if="!$store.state.auth.loggedIn"
-        color="error"
-        large
+        color="primary"
         @click="loginpage"
       >
-        {{ $t('top-navbar-login') }}
+        Discordでログイン
       </v-btn>
       <v-menu v-else open-on-hover offset-y rounded="Large" transition="slide-y-transition">
         <template v-slot:activator="{ on, attrs }">
-          <v-avatar
+          <v-btn
+            text
+            tile
+            :ripple="false"
             v-bind="attrs"
             v-on="on"
           >
-            <img
-              v-if="avatar !== null"
-              :src="avatar"
-              alt="Discord Avatar"
+            <v-avatar
+              class="mr-3"
+              v-bind="attrs"
+              v-on="on"
             >
-            <v-icon v-else>
-              mdi-account-circle
-            </v-icon>
-          </v-avatar>
+              <img
+                v-if="avatar !== null"
+                :src="avatar"
+                alt="Discord Avatar"
+              >
+              <v-icon v-else>
+                mdi-account-circle
+              </v-icon>
+            </v-avatar>
+            {{ $store.state.auth.user.username }}
+          </v-btn>
         </template>
         <v-list
           nav
         >
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-account-check-outline</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>{{ $store.state.auth.user.username }} #{{ $store.state.auth.user.discriminator }}</v-list-item-title>
-          </v-list-item>
           <v-list-item @click="$auth.logout()">
             <v-list-item-icon>
               <v-icon>mdi-logout</v-icon>
@@ -113,69 +151,15 @@
         </v-list>
       </v-menu>
     </v-app-bar>
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-      floating
-    >
-      <v-container>
-        <div>
-          <v-list-item>
-            <v-list-item-title class="text-center">
-              <img alt="VS Logo" src="/images/vs.png" height="50">
-            </v-list-item-title>
-          </v-list-item>
-        </div>
-        <v-list
-          dense
-          nav
-          shaped
-        >
-          <v-subheader>General</v-subheader>
-          <v-list-item
-            v-for="([icon, text, link, exact], i) in generalitems"
-            :key="`first-${i}`"
-            :to="localePath(link)"
-            :exact="exact"
-            color="error"
-          >
-            <v-list-item-icon>
-              <v-icon>{{ icon }}</v-icon>
-            </v-list-item-icon>
-
-            <v-list-item-content>
-              <v-list-item-title>{{ text }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-
-          <v-subheader>Login Only</v-subheader>
-          <v-list-item
-            v-for="([icon, text, link, exact], i) in loginonlyitems"
-            :key="`second-${i}`"
-            :to="localePath(link)"
-            :exact="exact"
-            color="error"
-          >
-            <v-list-item-icon>
-              <v-icon>{{ icon }}</v-icon>
-            </v-list-item-icon>
-
-            <v-list-item-content>
-              <v-list-item-title>{{ text }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-container>
-    </v-navigation-drawer>
     <v-main>
       <Nuxt />
     </v-main>
     <v-footer
       app
       absolute
-      inset
     >
-      <span class="grey--text" style="font-size: 12px">&copy; {{ new Date().getFullYear() }} - valorantstore.net is not endorsed by Riot Games in any way. Riot Games, Valorant, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.<br> Valorantstore.net was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games. This is made by a player, for players.<br><a href="https://lunacnet.notion.site/lunacnet/Valorant-Store-Chcecker-ce4ed87caebb4fbc94e1af3debb5b7b8">ToS & Privacy Policy</a></span>
+      <span class="grey--text" style="font-size: 12px">&copy; {{ new Date().getFullYear() }} - valorantstore.net is not endorsed by Riot Games in any way. Riot Games, Valorant, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
+Valorantstore.net was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games. This is made by a player, for players.<br><a href="https://lunacnet.notion.site/lunacnet/Valorant-Store-Chcecker-ce4ed87caebb4fbc94e1af3debb5b7b8">ToS & Privacy Policy</a></span>
     </v-footer>
   </v-app>
 </template>
@@ -185,19 +169,12 @@ export default {
   name: 'DefaultLayout',
   data () {
     return {
-      drawer: null,
-      generalitems: [
-        ['mdi-home-outline', `${this.$t('navbar-home')}`, 'index', true],
-        // ['mdi-trophy-variant-outline', 'VCT-Matches', 'vct-matches', true],
-        ['mdi-information-outline', `${this.$t('navbar-about')}`, 'about', true],
-        ['mdi-archive-outline', `${this.$t('navbar-bundles')}`, 'bundles', true],
-        ['mdi-chart-box-outline', `${this.$t('navbar-stats')}`, 'stats', true]
-      ],
-      loginonlyitems: [
-        ['mdi-view-dashboard', `${this.$t('navbar-dashboard')}`, 'dashboard', true],
-        ['mdi-cart', `${this.$t('navbar-daily-store')}`, 'store', true],
-        ['mdi-content-save-outline', `${this.$t('navbar-inventory')}`, 'inventory', true],
-        ['mdi-account-cog-outline', `${this.$t('navbar-link-manager')}`, 'link', true]
+      menu: [
+        { icon: "mdi-home", title: 'Home', link: "/" },
+        { icon: "mdi-information", title: 'About', link: "about" },
+        { icon: "mdi-view-dashboard", title: 'Dashboard', link: "dashboard" },
+        { icon: "mdi-cart", title: 'Store', link: "store" },
+        { icon: "mdi-cog", title: 'Settings', link: "settings" }
       ],
       avatar: null
     }

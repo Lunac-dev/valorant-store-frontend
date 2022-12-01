@@ -1,19 +1,23 @@
 <template>
   <v-container>
-    <h1 class="vtitle">
-      {{ $t('navbar-daily-store') }}
+    <h1>
+      {{ $t('store_share_title') }}
     </h1>
-    <v-btn
-      color="error"
-      large
-      text
-      @click="viewdate()"
+    <p class="grey--text" style="font-size: 12px" v-if="date">
+      Updated Store: {{ date }}
+    </p>
+    <v-card
+      v-if="bundleid"
+      class="mx-auto"
+      max-width="100%"
     >
-      <v-icon left>
-        mdi-clock-check-outline
-      </v-icon>
-      <h3 v-text="date" />
-    </v-btn>
+      <a href="/">
+        <v-img
+          height="450"
+          :src="'https://s3.valorantstore.net/bundles/' + bundleid + '.png'"
+        />
+      </a>
+    </v-card>
     <v-row class="pt-5">
       <v-col v-for="weapon in storeoffers" v-bind:key="weapon.name" cols="12" sm="3">
         <v-card
@@ -23,7 +27,7 @@
           @click="viewskin(weapon.uuid)"
         >
           <v-img
-            :src="/images/ + weapon.tierid + '.png'"
+            :src="/img/ + weapon.tierid + '.png'"
             height="250px"
             aspect-ratio="1.4"
             contain
@@ -46,8 +50,13 @@
         </v-card>
       </v-col>
     </v-row>
+    <div style="text-align: center">
+      <adsbygoogle
+        :ad-slot="'7973975438'"
+      />
+    </div>
     <h1 v-if="bonusoffers[0] !== undefined" class="vtitle">
-      {{ $t('store-night-market') }}
+      {{ $t('store_night_market') }}
     </h1>
     <v-row v-if="bonusoffers[0] !== undefined">
       <v-col v-for="weapon in bonusoffers" v-bind:key="weapon.name" cols="6">
@@ -81,13 +90,6 @@
         </v-card>
       </v-col>
     </v-row>
-    <h2 v-else style="margin-top: 10px;">
-      {{ $t('store-night-market-close') }}
-    </h2>
-    <adsbygoogle
-      :ad-slot="'7973975438'"
-      :ad-format="'autorelaxed'"
-    />
   </v-container>
 </template>
 
@@ -99,82 +101,49 @@ export default {
     return {
       storeoffers: [],
       bonusoffers: [],
-      date: undefined
+      date: undefined,
+      bundleid: undefined
     }
   },
 
   head () {
     return {
-      title: 'Daily Store'
+      title: 'User Daily Store'
     }
   },
 
-  mounted () {
+  async mounted () {
     this.$swal.showLoading()
-    this.loadStores()
-  },
-
-  methods: {
-    async loadStores () {
-      if (this.$route.params.id === undefined) {
+    const response = await this.$axios.get('/getstore2', { headers: { discordid: this.$route.params.id } })
+    if (response.data.status !== undefined) {
+      if (response.data.status === 404) {
         this.$swal({
           icon: 'error',
           title: 'Oops...',
           text: 'User not found.'
         })
-        return
-      }
-      const response = await this.$axios.get(`${this.$config.API_BASE}/valorant/getshop2`, { headers: { discordid: this.$route.params.id } })
-      if (response.data.status !== undefined) {
-        if (response.data.status === 'FAILED') {
-          this.$swal({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'User not found.'
-          })
-        } else {
-          this.$swal({
-            icon: 'error',
-            title: 'Oops...',
-            text: response.data.status
-          })
-        }
+        this.$router.go(-1)
       } else {
-        const response2 = await this.$axios.get(`${this.$config.API_BASE}/valorant/getnightmarket2`, { headers: { discordid: this.$route.params.id } })
-        this.setStores(response.data)
-        this.setNightMarket(response2.data)
+        this.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: response.data.status
+        })
       }
-    },
-
-    getDateFrom (date) {
-      const diff = new Date().getTime() - date
-      const elapsed = new Date(diff)
-
-      if (date === undefined) {
-        return 'Unknown'
+    } else {
+      this.bundleid = response.data.bundle
+      this.setStores(response.data.offers)
+      if ('bonus' in response.data) {
+        this.setNightMarket(response.data.bonus)
       }
+    }
+  },
 
-      if (elapsed.getUTCFullYear() - 1970) {
-        return elapsed.getUTCFullYear() - 1970 + ' years ago'
-      } else if (elapsed.getUTCMonth()) {
-        return elapsed.getUTCMonth() + ' months ago'
-      } else if (elapsed.getUTCDate() - 1) {
-        return elapsed.getUTCDate() - 1 + ' days ago'
-      } else if (elapsed.getUTCHours()) {
-        return elapsed.getUTCHours() + ' hours ago'
-      } else if (elapsed.getUTCMinutes()) {
-        return elapsed.getUTCMinutes() + ' minutes ago'
-      } else if (elapsed.getUTCSeconds()) {
-        return elapsed.getUTCSeconds() + ' seconds ago'
-      } else {
-        return 'just now'
-      }
-    },
-
+  methods: {
     setStores (stores) {
       for (const k in stores) {
-        if ('offerleft' in stores[k]) {
-          this.date = this.getDateFrom(stores[k].date * 1000)
+        if ('date' in stores[k]) {
+          this.date = stores[k].date
           continue
         }
         this.storeoffers.push(
@@ -197,14 +166,6 @@ export default {
 
     viewskin (uuid) {
       window.open('/skin/' + uuid, '_self')
-    },
-
-    viewdate () {
-      this.$swal({
-        icon: 'info',
-        title: 'Last updated time',
-        text: this.date
-      })
     }
   }
 }

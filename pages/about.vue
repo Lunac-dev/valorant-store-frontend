@@ -1,41 +1,34 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col class="text-center">
-        <h1 class="vtitle">
-          We Are <span class="valofont">VSC</span>
-        </h1>
-        <h3>{{ $t('about-subtitle') }}</h3>
-      </v-col>
-    </v-row>
-    <div class="pt-10">
-      <div class="v-responsive d-flex align-center mx-auto justify-center" style="height: 100%; max-width: 100vh; width: 100%;">
-        <v-card
-          elevation="2"
-          class="pa-5"
-          width="100vh"
-        >
-          <v-row align-content="center">
-            <v-col align="center">
-              <img src="/images/vsbot.png" style="border-radius: 10%">
-            </v-col>
-            <v-col align="center">
-              <h1>Discord Bot</h1>
-              <p class="text--secondary">
-                {{ $t('about-discordbot') }}
-              </p>
-              <v-btn
-                href="https://discord.com/api/oauth2/authorize?client_id=962376379658297375&permissions=83968&scope=bot%20applications.commands"
-                elevation="2"
-                block
-                color="error"
-              >
-                {{ $t('index-invitebot') }}
-              </v-btn>
-            </v-col>
-          </v-row>
-        </v-card>
-      </div>
+    <div style="text-align: center">
+      <adsbygoogle
+        :ad-slot="'4143888168'"
+        :ad-format="'horizontal'"
+      />
+    </div>
+    <h1 class="text-center">
+      {{ $t('about_title') }}
+    </h1>
+    <div class="pt-5">
+      <v-card
+        elevation="2"
+        class="pa-5"
+        width="100%"
+      >
+        <v-row class="d-flex align-center mx-auto justify-center">
+          <v-col align="center" cols="12" sm="6">
+            <v-img src="/img/vsbanner.png" max-height="200" aspect-ratio="1.7" contain />
+          </v-col>
+          <v-col align="center" cols="12" sm="6">
+            <p class="text--secondary">
+              {{ $t('about_description') }}
+            </p>
+            <v-btn href="https://apps.apple.com/us/app/store-checker-for-valorant/id1637273546" target="_blank" color="primary" x-large>
+              GET iOS APP FROM APPLE STORE
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-card>
     </div>
     <div style="text-align: center">
       <adsbygoogle
@@ -44,119 +37,101 @@
         ad-format="horizontal"
       />
     </div>
-    <div class="pt-10">
-      <div class="v-responsive d-flex align-center mx-auto justify-center" style="height: 100%; max-width: 100vh; width: 100%;">
-        <v-card
-          elevation="2"
-          class="pa-5"
-          width="100vh"
-        >
-          <v-row align-content="center">
-            <v-col align="center">
-              <h1>Missions on the Web</h1>
-              <p class="text--secondary">
-                {{ $t('about-mission') }}
-              </p>
-              <v-btn
-                elevation="2"
-                block
-                color="error"
-                to="/dashboard"
-              >
-                VISIT
-              </v-btn>
-            </v-col>
-            <v-col align="center">
-              <img src="/images/mission.png">
-            </v-col>
-          </v-row>
-        </v-card>
-      </div>
+    <div class="pt-5">
+      <v-card
+        elevation="2"
+        class="pa-5"
+        width="100%"
+      >
+        <v-row class="d-flex align-center mx-auto justify-center">
+          <v-col align="center" cols="12" sm="6">
+            <v-img src="/img/discord.png" max-height="200" aspect-ratio="1.7" contain />
+          </v-col>
+          <v-col align="center" cols="12" sm="6">
+            <p class="text--secondary">
+              {{ $t('about_discord') }}
+            </p>
+            <v-btn href="https://discord.gg/valorantstore-net" target="_blank" color="discord" x-large>
+              YOU HAVE BEEN INVITED TO JOIN A SERVER
+            </v-btn>
+            <v-btn href="https://discord.com/oauth2/authorize?client_id=962376379658297375&permissions=83968&scope=bot%20applications.commands" target="_blank" color="discord" x-large outlined>
+              DISCORD BOT
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-card>
     </div>
-    <div class="pt-10">
-      <div class="v-responsive d-flex align-center mx-auto justify-center" style="height: 100%; max-width: 100vh; width: 100%;">
-        <v-card
-          elevation="2"
-          class="pa-5"
-          width="100vh"
-        >
-          <v-row align-content="center">
-            <v-col align="center">
-              <v-img
-                src="/images/iosapp.png"
-                height="250px"
-                width="400px"
-                contain
-                style="border-radius: 10%"
-              />
-            </v-col>
-            <v-col align="center">
-              <h1>iOS App</h1>
-              <p class="text--secondary">
-                {{ $t('about-iosapp') }}
-              </p>
-              <v-btn
-                href="https://apps.apple.com/app/id1637273546"
-                color="error"
-                x-large
-                class="mt-5"
-                target="_blank"
-              >
-                <v-icon left>
-                  mdi-apple
-                </v-icon>
-                App Store
-              </v-btn>
-            </v-col>
-          </v-row>
-        </v-card>
-      </div>
+    <div class="pt-5">
+      <v-card
+        elevation="2"
+        width="100%"
+      >
+        <v-card-title>
+          {{ $t('about_safety') }}
+        </v-card-title>
+        <v-card-text>
+          {{ $t('about_safety_text') }}
+        </v-card-text>
+      </v-card>
     </div>
-    <div class="pt-10">
-      <div class="v-responsive d-flex align-center mx-auto justify-center" style="height: 100%; max-width: 100vh; width: 100%;">
-        <v-card
-          elevation="2"
-          class="pa-5 text-center"
-          width="100vh"
-        >
-          <v-row align-content="center">
-            <v-col align="center">
-              <h1>Contact Us</h1>
-              <iframe
-                src="https://discord.com/widget?id=781946764168658984&theme=dark"
-                width="350"
-                height="300"
-                allowtransparency="true"
-                frameborder="0"
-                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-              />
-            </v-col>
-            <v-col align="center">
-              <h1>Is this safe?</h1>
-              <p class="text--secondary">
-                {{ $t('about-safe') }}
-              </p>
-              <v-btn
-                elevation="2"
-                block
-                color="info"
-                href="https://github.com/Lunac-dev/valorant-store-frontend"
-              >
-                valorant-store-frontend
-              </v-btn>
-              <v-btn
-                class="mt-5"
-                elevation="2"
-                block
-                color="info"
-                href="https://github.com/Lunac-dev/valorant-store-backend"
-              >
-                valorant-store-backend
-              </v-btn>
-            </v-col>
-          </v-row>
+    <div class="pt-5">
+      <v-card
+        class="pa-3"
+        elevation="2"
+        width="100%"
+      >
+        <v-card-title>
+          {{ $t('about_faq') }}
+        </v-card-title>
+        <v-card outlined class="ma-5">
+          <v-card-title>
+            {{ $t('about_faq_qsafe') }}
+          </v-card-title>
+          <v-card-text>
+            {{ $t('about_faq_asafe') }}
+          </v-card-text>
+          <v-card-actions>
+            <v-btn
+              text
+              href="https://github.com/Lunac-dev/valorant-store-frontend"
+              target="_blank"
+            >
+              Github
+              <v-icon>
+                mdi-github
+              </v-icon>
+            </v-btn>
+          </v-card-actions>
         </v-card>
-      </div>
+        <v-card outlined class="ma-5">
+          <v-card-title>
+            {{ $t('about_faq_qmyregion') }}
+          </v-card-title>
+          <v-card-text>
+            {{ $t('about_faq_amyregion') }}
+          </v-card-text>
+          <v-card-actions>
+            <v-btn
+              text
+              href="https://account.riotgames.com/"
+              target="_blank"
+            >
+              Riot games Account
+              <v-icon>
+                mdi-account-check-outline
+              </v-icon>
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+        <v-card outlined class="ma-5">
+          <v-card-title>
+            {{ $t('about_faq_qmyriotname') }}
+          </v-card-title>
+          <v-card-text>
+            {{ $t('about_faq_amyriotname') }}
+          </v-card-text>
+        </v-card>
+      </v-card>
     </div>
   </v-container>
 </template>
@@ -164,7 +139,6 @@
 <script>
 export default {
   name: 'AboutPage',
-
   head () {
     return {
       title: 'About'
@@ -178,7 +152,6 @@ export default {
   color: #ff4655;
   font-family: 'VALORANT', sans-serif;
 }
-
 .vtitle {
   font-size: 10vh;
 }

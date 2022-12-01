@@ -6,7 +6,15 @@
     >
       {{ $route.query.error }}: {{ $route.query.error_description }}
     </v-alert>
-    <h1 v-if="!$route.query.error" class="title">{{ $t('login-wait') }}</h1>
+    <div class="d-flex justify-center" style="height: 100vh;">
+      <v-progress-circular
+        v-if="!$route.query.error"
+        :size="70"
+        :width="7"
+        color="primary"
+        indeterminate
+      />
+    </div>
   </v-container>
 </template>
 
@@ -16,9 +24,3 @@ export default {
 }
 </script>
 
-<style scoped lang="css">
-.title {
-  color: #C8C6D7;
-  font-size: 26px;
-}
-</style>
