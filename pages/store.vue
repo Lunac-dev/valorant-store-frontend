@@ -1,26 +1,68 @@
 <template>
   <v-container>
-    <h1>
-      {{ $t('store_title') }}
-    </h1>
-    <p>
-      {{ $t('store_description') }}
-    </p>
-    <p class="grey--text" style="font-size: 12px">
-      Updated Store: {{ date }}
-    </p>
-    <v-btn
-      color="primary"
-      large
-      outlined
-      style="margin-left: 7 px;"
-      @click="twitterShare()"
-    >
-      <v-icon>
-        mdi-twitter
-      </v-icon>
-      {{ $t('store_share') }}
-    </v-btn>
+    <v-row>
+      <v-col cols="12" sm="6">
+        <h1>
+          {{ $t('store_title') }}
+        </h1>
+        <p>
+          {{ $t('store_description') }}
+        </p>
+        <p class="grey--text" style="font-size: 12px">
+          Updated Store: {{ date }}
+        </p>
+        <v-btn
+          color="primary"
+          large
+          outlined
+          style="margin-left: 7 px;"
+          @click="twitterShare()"
+        >
+          <v-icon>
+            mdi-twitter
+          </v-icon>
+          {{ $t('store_share') }}
+        </v-btn>
+      </v-col>
+      <v-col cols="12" sm="6">
+        <v-row>
+          <v-col cols="12" sm="6">
+            <h3>Valorant Points</h3>
+            <v-card
+              class="mx-auto d-flex flex-no-wrap justify-space-between"
+              max-width="100%"
+              outlined
+            >
+              <v-card-title><h1 v-text="vp" /></v-card-title>
+              <v-avatar
+                class="ma-3"
+                size="80"
+                tile
+              >
+                <v-img src="/img/vp.png" />
+              </v-avatar>
+            </v-card>
+          </v-col>
+          <v-col cols="12" sm="6">
+            <h3>Radianite Points </h3>
+            <v-card
+              class="mx-auto d-flex flex-no-wrap justify-space-between"
+              max-width="100%"
+              outlined
+            >
+              <v-card-title><h1 v-text="rp" /></v-card-title>
+              <v-avatar
+                class="ma-3"
+                size="80"
+                tile
+              >
+                <v-img src="/img/rp.png" />
+              </v-avatar>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
     <v-card
       class="mx-auto"
       max-width="100%"
@@ -53,7 +95,7 @@
               aspect-ratio="1.4"
               contain
             >
-              <v-card-title class="valofont">
+              <v-card-title class="font-weight-black primary--text">
                 {{ weapon.name }}
               </v-card-title>
               <v-card-subtitle class="text-h6 text-decoration-underline text-right">
@@ -69,7 +111,7 @@
         :ad-slot="'3401103391'"
       />
     </div>
-    <h1 v-if="bonusoffers[0] !== undefined" class="vtitle">
+    <h1 v-if="bonusoffers[0] !== undefined">
       {{ $t('store_night_market') }}
     </h1>
     <v-row v-if="bonusoffers[0] !== undefined">
@@ -93,11 +135,11 @@
               aspect-ratio="1.4"
               contain
             >
-              <v-card-title class="valofont">
+              <v-card-title class="font-weight-black primary--text">
                 {{ weapon.name }}
               </v-card-title>
               <v-card-subtitle class="text-h6 text-decoration-underline text-right">
-                {{ weapon.vpold }} VP -> {{ weapon.vp }} VP
+                {{ weapon.vpold }} VP -> {{ weapon.vp }} VP (-{{ weapon.discountpercent }}%)
               </v-card-subtitle>
             </v-img>
           </v-img>
@@ -116,7 +158,9 @@ export default {
       storeoffers: [],
       bonusoffers: [],
       date: undefined,
-      bundleid: undefined
+      bundleid: undefined,
+      vp: 0,
+      rp: 0
     }
   },
   head () {
@@ -144,6 +188,8 @@ export default {
       }
     } else {
       this.bundleid = response.data.bundle
+      this.rp = response.data.wallet.rp
+      this.vp = response.data.wallet.vp
       this.setStores(response.data.offers)
       if ('bonus' in response.data) {
         this.setNightMarket(response.data.bonus)
@@ -170,7 +216,7 @@ export default {
           continue
         }
         this.bonusoffers.push(
-          { uuid: stores[k].uuid, vp: stores[k].vp, vpold: stores[k].vpold, name: stores[k].name, imgsrc: stores[k].imgsrc, videosrc: stores[k].videosrc, tierid: stores[k].tierid }
+          { uuid: stores[k].uuid, vp: stores[k].vp, vpold: stores[k].vpold, name: stores[k].name, imgsrc: stores[k].imgsrc, videosrc: stores[k].videosrc, tierid: stores[k].tierid, discountpercent: stores[k].discountpercent }
         )
       }
     },
@@ -190,9 +236,3 @@ export default {
   }
 }
 </script>
-<style scoped lang="css">
-.valofont {
-  color: #ff4655;
-  font-family: 'VALORANT', sans-serif;
-}
-</style>

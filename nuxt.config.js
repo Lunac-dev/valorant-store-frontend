@@ -15,15 +15,11 @@ export default {
       { hid: 'og:url', property: 'og:url', content: 'https://valorantstore.net/' },
       { hid: 'og:title', property: 'og:title', content: 'Valorant Store Checker' },
       { hid: 'og:description', property: 'og:description', content: 'Check your daily store without launching Valorant! Quick, easy, and simple!' },
-      { hid: 'og:image', property: 'og:image', content: 'https://valorantstore.net/img/vsbanner.png' },
+      { hid: 'og:image', property: 'og:image', content: 'https://valorantstore.net/img/icon.png' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.cdnfonts.com/css/valorant',
-      },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
   },
 
