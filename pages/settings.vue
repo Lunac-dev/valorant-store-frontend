@@ -256,7 +256,7 @@ export default {
         } else {
           this.$swal({
             icon: 'error',
-            title: 'Unknown Error (please report to discord community)',
+            title: 'Unknown Error',
             text: register.data.status
           })
         }
