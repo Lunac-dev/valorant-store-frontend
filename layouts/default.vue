@@ -111,7 +111,7 @@
         color="primary"
         @click="loginpage"
       >
-        Discordでログイン
+        Login with Discord
       </v-btn>
       <v-menu v-else open-on-hover offset-y rounded="Large" transition="slide-y-transition">
         <template v-slot:activator="{ on, attrs }">
