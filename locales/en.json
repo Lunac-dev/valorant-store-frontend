@@ -28,5 +28,8 @@
   "settings_unlink_acc" : "Unlink to Riot Account",
   "settings_link_help" : "If you do not know the link to your account (login), or if you are using a third party such as Google, the following help is available.",
   "settings_link_warning" : "Please note that once unlinked, all user settings and account information will be deleted.",
-  "settings_autologin" : "Select whether to automatically login when cookies expire. Please note that if turned on, your user name and password will be stored in encrypted form."
+  "settings_autologin" : "Select whether to automatically login when cookies expire. Please note that if turned on, your user name and password will be stored in encrypted form.",
+  "reminder_title" : "Reminder",
+  "reminder_description" : "Here you can set up reminders, a feature available only to community supporters. Please register by adding the weapons you want. You will be notified on Discord when there is a weapon you want when the store is updated.",
+  "not_rank" : "You are not a community supporter and cannot use it."
 }

@@ -174,7 +174,8 @@ export default {
         { icon: "mdi-information", title: 'About', link: "about" },
         { icon: "mdi-view-dashboard", title: 'Dashboard', link: "dashboard" },
         { icon: "mdi-cart", title: 'Store', link: "store" },
-        { icon: "mdi-cog", title: 'Settings', link: "settings" }
+        { icon: "mdi-cog", title: 'Settings', link: "settings" },
+        { icon: "mdi-bell-ring", title: 'Reminder', link: "reminder" }
       ],
       avatar: null
     }
