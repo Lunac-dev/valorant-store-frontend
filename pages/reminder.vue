@@ -105,24 +105,27 @@ export default {
       page: 1,
       length: 0,
       pageSize: 12,
-      added_weapons: []
+      added_weapons: [],
+      not_rank: false
     }
   },
 
-  mounted () {
-    if (!this.not_rank) {
+  async mounted () {
+    const response = await this.$axios.$get('/reminder/check')
+    if (response.status === 403) {
+      this.not_rank = true
       this.loadWeapons()
     }
   },
 
-  async asyncData ({ $axios }) {
-    const response = await $axios.$get('/reminder/check')
-    if (response.status === 403) {
-      return { not_rank: true }
-    } else {
-      return { not_rank: false }
-    }
-  },
+  // async asyncData ({ $axios }) {
+  //   const response = await $axios.$get('/reminder/check')
+  //   if (response.status === 403) {
+  //     return { not_rank: true }
+  //   } else {
+  //     return { not_rank: false }
+  //   }
+  // },
 
   methods: {
     async loadWeapons () {
