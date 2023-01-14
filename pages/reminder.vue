@@ -106,14 +106,14 @@ export default {
       length: 0,
       pageSize: 12,
       added_weapons: [],
-      not_rank: false
+      not_rank: true
     }
   },
 
   async mounted () {
     const response = await this.$axios.$get('/reminder/check')
-    if (response.status === 403) {
-      this.not_rank = true
+    if (response.status === 200) {
+      this.not_rank = false
       this.loadWeapons()
     }
   },
