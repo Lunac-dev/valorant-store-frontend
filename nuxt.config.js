@@ -119,8 +119,8 @@ export default {
     locales: [
       { code: 'ja', name: 'Japanese', iso: 'ja-JP', file: 'ja.json' },
       { code: 'en', name: 'English', iso: 'en-US', file: 'en.json' },
-      { code: 'de', name: 'Deutsch', iso: 'de-DE', file: 'en.json' },
-      { code: 'cn', name: 'Chinese', iso: 'zh-CN', file: 'en.json' }
+      { code: 'de', name: 'Deutsch', iso: 'de-DE', file: 'de.json' },
+      { code: 'cn', name: 'Chinese', iso: 'zh-CN', file: 'cn.json' }
     ],
     defaultLocale: 'en',
     langDir: 'locales/',
