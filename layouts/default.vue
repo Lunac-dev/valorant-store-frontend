@@ -92,8 +92,8 @@
           <v-list-item v-if="$i18n.locale !== 'ja'" @click="() => changeLocale('ja')">
             <v-list-item-title>日本語</v-list-item-title>
           </v-list-item>
-          <v-list-item v-if="$i18n.locale !== 'de'" @click="() => changeLocale('de')">
-            <v-list-item-title>Deutsch</v-list-item-title>
+          <v-list-item v-if="$i18n.locale !== 'nl'" @click="() => changeLocale('nl')">
+            <v-list-item-title>Dutch</v-list-item-title>
           </v-list-item>
           <v-list-item v-if="$i18n.locale !== 'cn'" @click="() => changeLocale('cn')">
             <v-list-item-title>Chinese</v-list-item-title>

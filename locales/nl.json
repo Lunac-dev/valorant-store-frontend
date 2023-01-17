@@ -29,7 +29,7 @@
   "settings_link_help" : "Als u de link naar uw account (login) niet weet, of als u een externe applicatie zoals Google gebruikt, is de volgende hulp beschikbaar.",
   "settings_link_warning" : "Houd er rekening mee dat na ontkoppeling alle gebruikersinstellingen en accountinformatie worden verwijderd.",
   "settings_autologin" : "Selecteer of u automatisch wilt inloggen wanneer cookies verlopen. Houd er rekening mee dat indien ingeschakeld, uw gebruikersnaam en wachtwoord in gecodeerde vorm worden opgeslagen.",
-  "reminder_title" : "Erinnerung",
-  "reminder_description" : "Hier können Sie Erinnerungen einrichten, eine Funktion, die nur für Community-Unterstützer verfügbar ist. Bitte registrieren Sie sich, indem Sie die gewünschten Waffen hinzufügen. Sie werden über Discord benachrichtigt, wenn eine Waffe, die Sie haben möchten, im Laden aktualisiert wird.",
-  "not_rank" : "Sie sind kein Unterstützer der Gemeinschaft und können sie nicht nutzen."
+  "reminder_title" : "Herinnering",
+  "reminder_description" : "Hier kun je herinneringen instellen, een functie die alleen beschikbaar is voor community supporters. Registreer je door de wapens toe te voegen die je wilt hebben. Je krijgt een melding op Discord wanneer er een wapen is dat je wilt als de winkel wordt bijgewerkt.",
+  "not_rank" : "Je bent geen gemeenschapsondersteuner en kunt het niet gebruiken."
 }
