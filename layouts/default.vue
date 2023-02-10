@@ -8,7 +8,7 @@
       <div
         class="d-flex align-center"
       >
-        <img src="/img/vsbanner.png" alt="logo" class="hidden-sm-and-down" height="40"/>
+        <img src="/img/icon.png" alt="logo" class="hidden-sm-and-down" height="40"/>
         <v-btn v-for="item in menu" :key="item.icon" :to="item.link" text nuxt tile plain :ripple="false" class="hidden-sm-and-down">
           {{ item.title }}
         </v-btn>

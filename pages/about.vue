@@ -17,7 +17,7 @@
       >
         <v-row class="d-flex align-center mx-auto justify-center">
           <v-col align="center" cols="12" sm="6">
-            <v-img src="/img/vsbanner.png" max-height="200" aspect-ratio="1.7" contain />
+            <v-img src="/img/icon.png" max-height="200" aspect-ratio="1.7" contain />
           </v-col>
           <v-col align="center" cols="12" sm="6">
             <p class="text--secondary">
@@ -52,7 +52,7 @@
               {{ $t('about_discord') }}
             </p>
             <v-btn href="https://discord.gg/valorantstore-net" target="_blank" color="discord" x-large>
-              YOU HAVE BEEN INVITED TO JOIN A SERVER
+              JOIN US!
             </v-btn>
             <v-btn href="https://discord.com/oauth2/authorize?client_id=962376379658297375&permissions=83968&scope=bot%20applications.commands" target="_blank" color="discord" x-large outlined>
               DISCORD BOT
