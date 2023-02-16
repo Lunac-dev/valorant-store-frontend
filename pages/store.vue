@@ -84,25 +84,32 @@
         >
           <v-img
             :src="/img/ + weapon.tierid + '.png'"
-            height="250px"
+            height="200px"
             aspect-ratio="1.4"
             contain
           >
             <v-img
               :src="weapon.imgsrc"
-              height="250px"
-              class="align-end"
+              height="200px"
               aspect-ratio="1.4"
               contain
             >
-              <v-card-title class="font-weight-black primary--text">
-                {{ weapon.name }}
-              </v-card-title>
-              <v-card-subtitle class="text-h6 text-decoration-underline text-right">
-                {{ weapon.vp }} VP
+              <v-card-subtitle class="align-start text-right">
+                <v-chip
+                  color="primary"
+                  :ripple="false"
+                >
+                  <v-avatar left>
+                    <v-img src="/img/vp.png" />
+                  </v-avatar>
+                  {{ weapon.vp }} VP
+                </v-chip>
               </v-card-subtitle>
             </v-img>
           </v-img>
+          <v-card-title class="align-end font-weight-black primary--text">
+            {{ weapon.name }}
+          </v-card-title>
         </v-card>
       </v-col>
     </v-row>
@@ -115,7 +122,7 @@
       {{ $t('store_night_market') }}
     </h1>
     <v-row v-if="bonusoffers[0] !== undefined">
-      <v-col v-for="weapon in bonusoffers" v-bind:key="weapon.name" cols="6">
+      <v-col v-for="weapon in bonusoffers" v-bind:key="weapon.name" cols="12" sm="6">
         <v-card
           class="mx-auto c2"
           max-width="100%"
@@ -123,26 +130,33 @@
           @click="viewskin(weapon.uuid)"
         >
           <v-img
-            :src="/images/ + weapon.tierid + '.png'"
-            height="250px"
+            :src="/img/ + weapon.tierid + '.png'"
+            height="300px"
             aspect-ratio="1.4"
             contain
           >
             <v-img
               :src="weapon.imgsrc"
-              height="250px"
-              class="align-end"
+              height="300px"
               aspect-ratio="1.4"
               contain
             >
-              <v-card-title class="font-weight-black primary--text">
-                {{ weapon.name }}
-              </v-card-title>
-              <v-card-subtitle class="text-h6 text-decoration-underline text-right">
-                {{ weapon.vpold }} VP -> {{ weapon.vp }} VP (-{{ weapon.discountpercent }}%)
+              <v-card-subtitle class="align-start text-right">
+                <v-chip
+                  color="primary"
+                  :ripple="false"
+                >
+                  <v-avatar left>
+                    <v-img src="/img/vp.png" />
+                  </v-avatar>
+                  {{ weapon.vpold }} >>> {{ weapon.vp }} (-{{ weapon.discountpercent }}%)
+                </v-chip>
               </v-card-subtitle>
             </v-img>
           </v-img>
+          <v-card-title class="font-weight-black primary--text">
+            {{ weapon.name }}
+          </v-card-title>
         </v-card>
       </v-col>
     </v-row>
