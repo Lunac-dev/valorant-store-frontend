@@ -122,7 +122,7 @@
       {{ $t('store_night_market') }}
     </h1>
     <v-row v-if="bonusoffers[0] !== undefined">
-      <v-col v-for="weapon in bonusoffers" v-bind:key="weapon.name" cols="12" sm="6">
+      <v-col v-for="weapon in bonusoffers" v-bind:key="weapon.name" cols="12" sm="4">
         <v-card
           class="mx-auto c2"
           max-width="100%"
