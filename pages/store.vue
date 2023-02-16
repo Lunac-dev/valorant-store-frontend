@@ -102,7 +102,7 @@
                   <v-avatar left>
                     <v-img src="/img/vp.png" />
                   </v-avatar>
-                  {{ weapon.vp }} VP
+                  {{ weapon.vp }}
                 </v-chip>
               </v-card-subtitle>
             </v-img>
