@@ -179,7 +179,7 @@ export default {
       if (res.data.status === 200) {
         this.$swal({
           icon: 'success',
-          title: 'Registed!'
+          title: 'Registered!'
         })
       } else {
         this.$swal({
