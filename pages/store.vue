@@ -1,5 +1,13 @@
 <template>
   <v-container>
+    <v-overlay v-if="loading">
+      <v-progress-circular
+        indeterminate
+        color="primary"
+      >
+        Loading...
+      </v-progress-circular>
+    </v-overlay>
     <v-row>
       <v-col cols="12" sm="6">
         <h1>
@@ -174,7 +182,8 @@ export default {
       date: undefined,
       bundleid: undefined,
       vp: 0,
-      rp: 0
+      rp: 0,
+      loading: true
     }
   },
   head () {
@@ -183,31 +192,38 @@ export default {
     }
   },
   async mounted () {
-    this.$swal.showLoading()
-    const response = await this.$axios.get('/getstore')
-    if (response.data.status !== undefined) {
-      if (response.data.status === 'FAILED') {
-        this.$swal({
-          icon: 'error',
-          title: 'Oops...',
-          text: this.$t('not_link')
-        })
-        this.$router.go(-1)
+    try {
+      const response = await this.$axios.get('/getstore')
+      if (response.data.status !== undefined) {
+        if (response.data.status === 'FAILED') {
+          this.$swal({
+            icon: 'error',
+            title: 'Oops...',
+            text: this.$t('not_link')
+          })
+          this.$router.go(-1)
+        } else {
+          this.$swal({
+            icon: 'error',
+            title: 'Oops...',
+            text: response.data.status
+          })
+        }
       } else {
-        this.$swal({
-          icon: 'error',
-          title: 'Oops...',
-          text: response.data.status
-        })
+        this.bundleid = response.data.bundle
+        this.rp = response.data.wallet.rp
+        this.vp = response.data.wallet.vp
+        this.setStores(response.data.offers)
+        if ('bonus' in response.data) {
+          this.setNightMarket(response.data.bonus)
+        }
       }
-    } else {
-      this.bundleid = response.data.bundle
-      this.rp = response.data.wallet.rp
-      this.vp = response.data.wallet.vp
-      this.setStores(response.data.offers)
-      if ('bonus' in response.data) {
-        this.setNightMarket(response.data.bonus)
-      }
+    } catch (err) {
+      this.$swal({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Reload the web page and try again.'
+      })
     }
   },
   methods: {
@@ -221,7 +237,7 @@ export default {
           { uuid: stores[k].uuid, vp: stores[k].vp, name: stores[k].name, imgsrc: stores[k].imgsrc, videosrc: stores[k].videosrc, tierid: stores[k].tierid }
         )
       }
-      this.$swal.close()
+      this.loading = false
     },
 
     setNightMarket (stores) {
