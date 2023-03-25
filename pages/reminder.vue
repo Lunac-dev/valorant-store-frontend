@@ -13,9 +13,8 @@
     <p>
       {{ $t('reminder_description') }}
     </p>
-    <div class="d-flex">
+    <div class="d-flex" v-if="!this.not_rank">
       <v-btn
-        v-if="!this.not_rank"
         color="primary"
         @click="reset()"
       >
