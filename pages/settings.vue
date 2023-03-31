@@ -1,5 +1,13 @@
 <template>
   <v-container>
+    <v-overlay v-if="loading">
+      <v-progress-circular
+        indeterminate
+        color="primary"
+      >
+        Loading...
+      </v-progress-circular>
+    </v-overlay>
     <div style="text-align: center">
       <adsbygoogle
         :ad-slot="'9526693890'"
@@ -165,6 +173,7 @@ export default {
       riotuserpassword: null,
       riotregion: null,
       relogin: false,
+      loading: false,
       required: value => !!value || 'Please be sure to fill out the form or select.'
     }
   },
@@ -198,6 +207,7 @@ export default {
 
   methods: {
     async change() {
+      this.loading = true
       const submit = await this.$axios.$post('/settings', { private: this.privatestore })
       if (submit.status === 200) {
         this.$swal({
@@ -212,10 +222,11 @@ export default {
           text: 'An error has occurred: ' + submit.status
         })
       }
+      this.loading = false
     },
 
     async link () {
-      this.$swal.showLoading()
+      this.loading = true
       if (this.$refs.form.validate()) {
         const reg = /^[0-9a-zA-Z_]+$/
         if (!reg.test(this.riotusername)) {
@@ -267,10 +278,11 @@ export default {
           text: 'Please fill out the form and make your selection.'
         })
       }
+      this.loading = false
     },
 
     async unlink () {
-      this.$swal.showLoading()
+      this.loading = true
       const unlink = await this.$axios.post('/logout')
       if (unlink.data.status === 'OK') {
         // Success
@@ -287,6 +299,7 @@ export default {
           text: unlink.data.status
         })
       }
+      this.loading = false
     }
   }
 }

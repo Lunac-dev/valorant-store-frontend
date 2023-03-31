@@ -104,6 +104,9 @@
           <v-list-item v-if="$i18n.locale !== 'uk'" @click="() => changeLocale('uk')">
             <v-list-item-title>Українська</v-list-item-title>
           </v-list-item>
+          <v-list-item v-if="$i18n.locale !== 'sv'" @click="() => changeLocale('sv')">
+            <v-list-item-title>Svenska</v-list-item-title>
+          </v-list-item>
         </v-list>
       </v-menu>
       <v-btn

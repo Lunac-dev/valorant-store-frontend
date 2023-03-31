@@ -122,7 +122,8 @@ export default {
       { code: 'nl', name: 'Dutch', iso: 'nl-NL', file: 'nl.json' },
       { code: 'cn', name: 'Chinese', iso: 'zh-CN', file: 'cn.json' },
       { code: 'ru', name: 'Russian', iso: 'ru-RU', file: 'ru.json' },
-      { code: 'uk', name: 'Ukrainian ', iso: 'ua-UA', file: 'uk.json' }
+      { code: 'uk', name: 'Ukrainian', iso: 'ua-UA', file: 'uk.json' },
+      { code: 'sv', name: 'Svenska', iso: 'sv-SV', file: 'sv.json' }
     ],
     defaultLocale: 'en',
     langDir: 'locales/',
