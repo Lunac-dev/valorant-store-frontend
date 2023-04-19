@@ -1,4 +1,7 @@
 {
+  "index_btn1" : "Discord Bot",
+  "index_btn2" : "See Store",
+  "index_btn3" : "iOS App",
   "not_link" : "Du har inte länkat ditt konto. Du kan länka ditt konto i 'inställningar'",
   "login_description" : "Logga in nu för att kolla din affär från webben, slipp starta Valorant för att kolla!",
   "dashboard_stats" : "Vi håller koll på vilka vapen som finns tillgängliga varje dag och hur ofta. Vi gör detta för att så många spelare använder våra tjänster.",

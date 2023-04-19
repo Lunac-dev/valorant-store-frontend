@@ -1,4 +1,7 @@
 {
+  "index_btn1" : "Discord Bot",
+  "index_btn2" : "See Store",
+  "index_btn3" : "iOS App",
   "not_link" : "你没有完成链接。你可以从'设置'链接.",
   "login_description" : "现在登录检查您的日常商店，无需启动Valorant!",
   "dashboard_stats" : "我们跟踪每天提供哪些武器以及以何种速率。我们可以这样做，因为有很多用户使用我们的服务。",

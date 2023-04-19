@@ -1,4 +1,7 @@
 {
+  "index_btn1" : "Discord Bot",
+  "index_btn2" : "See Store",
+  "index_btn3" : "iOS App",
   "not_link" : "You have not completed the link. You can link from 'Settings'",
   "login_description" : "Login now to check your Daily Store from the web, no need to launch Valorant!",
   "dashboard_stats" : "We track which weapons are offered every day and at what rate. We can do this because so many users use our services.",
