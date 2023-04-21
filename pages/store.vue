@@ -47,7 +47,9 @@
                 size="80"
                 tile
               >
-                <v-img src="/img/vp.png" />
+                <v-icon x-large>
+                  mdi-currency-usd
+                </v-icon>
               </v-avatar>
             </v-card>
           </v-col>
@@ -64,7 +66,9 @@
                 size="80"
                 tile
               >
-                <v-img src="/img/rp.png" />
+                <v-icon x-large>
+                  mdi-gamepad-variant-outline
+                </v-icon>
               </v-avatar>
             </v-card>
           </v-col>
@@ -78,42 +82,33 @@
       <a href="/">
         <v-img
           height="450"
-          :src="'https://s3.valorantstore.net/bundles/' + bundleid + '.png'"
+          src="/img/bg3.jpg"
         />
       </a>
     </v-card>
     <v-row class="pt-5">
       <v-col v-for="weapon in storeoffers" v-bind:key="weapon.name" cols="12" sm="3">
         <v-card
-          class="mx-auto c1"
-          max-width="100%"
           hover
           @click="viewskin(weapon.uuid)"
         >
           <v-img
-            :src="/img/ + weapon.tierid + '.png'"
+            src="/img/icon.png"
             height="200px"
-            aspect-ratio="1.4"
+            aspect-ratio="2"
             contain
           >
-            <v-img
-              :src="weapon.imgsrc"
-              height="200px"
-              aspect-ratio="1.4"
-              contain
-            >
-              <v-card-subtitle class="align-start text-right">
-                <v-chip
-                  color="primary"
-                  :ripple="false"
-                >
-                  <v-avatar left>
-                    <v-img src="/img/vp.png" />
-                  </v-avatar>
-                  {{ weapon.vp }}
-                </v-chip>
-              </v-card-subtitle>
-            </v-img>
+            <v-card-subtitle class="align-start text-right">
+              <v-chip
+                color="primary"
+                :ripple="false"
+              >
+                <v-avatar left>
+                  <v-img src="/img/vp.png" />
+                </v-avatar>
+                {{ weapon.vp }}
+              </v-chip>
+            </v-card-subtitle>
           </v-img>
           <v-card-title class="align-end font-weight-black primary--text">
             {{ weapon.name }}
@@ -132,35 +127,26 @@
     <v-row v-if="bonusoffers[0] !== undefined">
       <v-col v-for="weapon in bonusoffers" v-bind:key="weapon.name" cols="12" sm="4">
         <v-card
-          class="mx-auto c2"
-          max-width="100%"
           hover
           @click="viewskin(weapon.uuid)"
         >
           <v-img
-            :src="/img/ + weapon.tierid + '.png'"
+            src="/img/icon.png"
             height="300px"
-            aspect-ratio="1.4"
+            aspect-ratio="2"
             contain
           >
-            <v-img
-              :src="weapon.imgsrc"
-              height="300px"
-              aspect-ratio="1.4"
-              contain
-            >
-              <v-card-subtitle class="align-start text-right">
-                <v-chip
-                  color="primary"
-                  :ripple="false"
-                >
-                  <v-avatar left>
-                    <v-img src="/img/vp.png" />
-                  </v-avatar>
-                  {{ weapon.vpold }} >>> {{ weapon.vp }} (-{{ weapon.discountpercent }}%)
-                </v-chip>
-              </v-card-subtitle>
-            </v-img>
+            <v-card-subtitle class="align-start text-right">
+              <v-chip
+                color="primary"
+                :ripple="false"
+              >
+                <v-avatar left>
+                  <v-img src="/img/vp.png" />
+                </v-avatar>
+                {{ weapon.vpold }} >>> {{ weapon.vp }} (-{{ weapon.discountpercent }}%)
+              </v-chip>
+            </v-card-subtitle>
           </v-img>
           <v-card-title class="font-weight-black primary--text">
             {{ weapon.name }}

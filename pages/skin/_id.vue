@@ -1,6 +1,7 @@
 <template>
   <v-container>
-    <v-alert
+    <h1>Not available.</h1>
+    <!-- <v-alert
       v-if="alert !== undefined"
       type="error"
     >
@@ -159,7 +160,7 @@
           </v-card>
         </v-col>
       </v-row>
-    </v-card>
+    </v-card> -->
   </v-container>
 </template>
 
@@ -167,66 +168,55 @@
 export default {
   name: 'SkinPage',
 
-  data () {
-    return {
-      name: undefined,
-      alert: undefined,
-      displayIcon: undefined,
-      price: 0,
-      tierid: undefined,
-      chromas: undefined,
-      levels: undefined,
-      tab: null
-    }
-  },
+  // data () {
+  //   return {
+  //     name: undefined,
+  //     alert: undefined,
+  //     displayIcon: undefined,
+  //     price: 0,
+  //     tierid: undefined,
+  //     chromas: undefined,
+  //     levels: undefined,
+  //     tab: null
+  //   }
+  // },
 
-  head () {
-    return {
-      title: 'Valorant Skin - ' + this.name
-    }
-  },
+  // head () {
+  //   return {
+  //     title: 'Valorant Skin - ' + this.name
+  //   }
+  // },
 
-  mounted () {
-    this.loadSkin()
-  },
+  // mounted () {
+  //   this.loadSkin()
+  // },
 
-  methods: {
-    async loadSkin () {
-      const response = await this.$axios.get(`/valorant/skin/${this.$route.params.id}`)
+  // methods: {
+  //   async loadSkin () {
+  //     const response = await this.$axios.get(`/valorant/skin/${this.$route.params.id}`)
 
-      if ('status' in response.data) {
-        this.alert = response.data.status
-      } else {
-        this.name = response.data.name
-        this.displayIcon = response.data.displayIcon
-        this.price = response.data.price
-        this.tierid = response.data.tierid
-        if (response.data.chromas.length !== 0) { this.chromas = response.data.chromas }
-        if (response.data.levels.length !== 0) { this.levels = response.data.levels }
-      }
-    },
+  //     if ('status' in response.data) {
+  //       this.alert = response.data.status
+  //     } else {
+  //       this.name = response.data.name
+  //       this.displayIcon = response.data.displayIcon
+  //       this.price = response.data.price
+  //       this.tierid = response.data.tierid
+  //       if (response.data.chromas.length !== 0) { this.chromas = response.data.chromas }
+  //       if (response.data.levels.length !== 0) { this.levels = response.data.levels }
+  //     }
+  //   },
 
-    copyToClipboard () {
-      navigator.clipboard.writeText(window.location.href)
-        .then(() => {
-          this.$swal({
-            icon: 'success',
-            title: 'URL Copied!'
-          })
-        })
-    }
-
-    // isVisible (player) {
-    //   const rect = player.getBoundingClientRect()
-    //   return (
-    //     rect.top >= 0 &&
-    //     rect.left >= 0 &&
-    //     rect.bottom <=
-    //       (window.innerHeight || document.documentElement.clientHeight) &&
-    //     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    //   )
-    // }
-  }
+  //   copyToClipboard () {
+  //     navigator.clipboard.writeText(window.location.href)
+  //       .then(() => {
+  //         this.$swal({
+  //           icon: 'success',
+  //           title: 'URL Copied!'
+  //         })
+  //       })
+  //   }
+  // }
 }
 </script>
 <style scoped lang="css">

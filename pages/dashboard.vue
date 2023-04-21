@@ -118,20 +118,7 @@
         class="mt-5"
         :headers="headers"
         :items="items"
-      >
-        <template v-slot:[`item.image`]="{ item }">
-          <v-img
-            :src="item.image"
-            aspect-ratio="1.4"
-            contain
-            height="5vw"
-            min-height="100px"
-            width="16vw"
-            min-width="160px"
-            class="ma-0 pa-0"
-          />
-        </template>
-      </v-data-table>
+      />
     </v-card>
   </v-container>
 </template>
@@ -170,13 +157,6 @@ export default {
         {
           text: 'Rank',
           value: 'rank'
-        },
-        {
-          text: 'Image',
-          align: 'start',
-          sortable: false,
-          value: 'image',
-          width: '30%'
         },
         {
           text: 'Name',

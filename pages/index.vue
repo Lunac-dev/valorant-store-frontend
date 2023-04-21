@@ -10,6 +10,7 @@
             color="primary"
             outlined
             x-large
+            disabled
           >
             <v-icon
               left
