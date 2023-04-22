@@ -1,5 +1,10 @@
 <template>
   <v-container>
+    <v-alert
+      type="warning"
+    >
+      All weapon images have been removed based on a DMCA notice from Riot Games.
+    </v-alert>
     <v-overlay v-if="loading">
       <v-progress-circular
         indeterminate
